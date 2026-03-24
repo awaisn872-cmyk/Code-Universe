@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MySQL Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding:20px;background:#f5f5f5; }
+.container { max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1); }
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;} button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;} a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>MySQL Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const mysqlQuiz=[
+{q:"MySQL is a ___",options:["Relational Database","NoSQL Database","Programming Language","Operating System"],answer:0},
+{q:"Command to create database?",options:["CREATE DATABASE dbname;","NEW DATABASE dbname;","MAKE DATABASE dbname;","DB CREATE dbname;"],answer:0},
+{q:"Command to delete database?",options:["DROP DATABASE dbname;","DELETE DATABASE dbname;","REMOVE DATABASE dbname;","DESTROY DATABASE dbname;"],answer:0},
+{q:"Command to create table?",options:["CREATE TABLE tablename(...);","MAKE TABLE","NEW TABLE","TABLE CREATE"],answer:0},
+{q:"Command to remove table?",options:["DROP TABLE tablename;","DELETE TABLE","REMOVE TABLE","DESTROY TABLE"],answer:0},
+{q:"Command to insert data?",options:["INSERT INTO tablename VALUES(...);","ADD INTO","PUT INTO","INTO INSERT"],answer:0},
+{q:"Command to update data?",options:["UPDATE tablename SET ...;","MODIFY","CHANGE","EDIT"],answer:0},
+{q:"Command to select data?",options:["SELECT * FROM tablename;","GET * FROM","CHOOSE FROM","FIND * FROM"],answer:0},
+{q:"Command to delete data?",options:["DELETE FROM tablename WHERE ...;","REMOVE FROM","DROP FROM","DESTROY FROM"],answer:0},
+{q:"MySQL uses ___ language",options:["SQL","C++","Python","Java"],answer:0},
+{q:"Keyword for primary key?",options:["PRIMARY KEY","MAIN KEY","KEY","MASTER KEY"],answer:0},
+{q:"Keyword for foreign key?",options:["FOREIGN KEY","OUTER KEY","LINK KEY","EXTERNAL KEY"],answer:0},
+{q:"Join type in SQL?",options:["INNER, LEFT, RIGHT, FULL","UPPER, LOWER, JOIN","FIRST, LAST","NONE"],answer:0},
+{q:"Function to count rows?",options:["COUNT()","SUM()","TOTAL()","ROWS()"],answer:0},
+{q:"Function to get max value?",options:["MAX()","TOP()","GREATEST()","UPPER()"],answer:0},
+{q:"Function to get min value?",options:["MIN()","LOW()","LEAST()","BOTTOM()"],answer:0},
+{q:"Keyword to group rows?",options:["GROUP BY","GROUP","BY","ORDER BY"],answer:0},
+{q:"Keyword to sort rows?",options:["ORDER BY","SORT BY","ARRANGE BY","LIST BY"],answer:0},
+{q:"Keyword to limit rows?",options:["LIMIT","MAXROWS","TOP","COUNT"],answer:0},
+{q:"Keyword to remove duplicates?",options:["DISTINCT","UNIQUE","NO_DUPLICATES","SINGLE"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+mysqlQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+mysqlQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your MySQL Quiz Score: ${score} / ${mysqlQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn SQL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn SQL</h1>
+    <p>Master database querying and data management!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>SQL Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('sql-intro')">1. Introduction to SQL</li>
+    <div id="sql-intro" class="topic-content">
+      <pre>
+-- SQL (Structured Query Language) is used to manage databases
+SELECT * FROM Students;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('sql-dml')">2. Data Manipulation (DML)</li>
+    <div id="sql-dml" class="topic-content">
+      <pre>
+INSERT INTO Students(Name, Age) VALUES('Alice', 25);
+UPDATE Students SET Age = 26 WHERE Name = 'Alice';
+DELETE FROM Students WHERE Age &lt; 18;
+SELECT * FROM Students;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('sql-ddl')">3. Data Definition (DDL)</li>
+    <div id="sql-ddl" class="topic-content">
+      <pre>
+CREATE TABLE Students(
+    ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Age INT
+);
+ALTER TABLE Students ADD COLUMN Grade CHAR(1);
+DROP TABLE OldStudents;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('sql-advanced')">4. Advanced SQL</li>
+    <div id="sql-advanced" class="topic-content">
+      <ul>
+        <li>JOINs (INNER, LEFT, RIGHT, FULL)</li>
+        <li>GROUP BY, HAVING</li>
+        <li>Aggregate Functions (COUNT, SUM, AVG)</li>
+        <li>Subqueries</li>
+        <li>Views</li>
+        <li>Indexes</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | SQL Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

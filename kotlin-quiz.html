@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kotlin Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Kotlin Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const kotlinQuiz=[
+{q:"Kotlin developed by?",options:["JetBrains","Google","Microsoft","Apple"],answer:0},
+{q:"Kotlin is ___ language?",options:["Statically Typed","Dynamically Typed","Scripting","Functional"],answer:0},
+{q:"Keyword for constant?",options:["val","var","let","const"],answer:0},
+{q:"To define variable?",options:["var","val","let","const"],answer:0},
+{q:"Entry point function?",options:["fun main()","main()","start()","init()"],answer:0},
+{q:"Nullable type symbol?",options:["?","!","#","$"],answer:0},
+{q:"Loop for known iterations?",options:["for","while","do-while","repeat"],answer:0},
+{q:"Loop for unknown iterations?",options:["while","for","do-while","repeat"],answer:0},
+{q:"Keyword for class?",options:["class","object","struct","type"],answer:0},
+{q:"Singleton object?",options:["object","class","singleton","instance"],answer:0},
+{q:"Inheritance keyword?",options:["open","extends","inherit","super"],answer:0},
+{q:"Lambda function syntax?",options:["{ }","lambda","func","=>"],answer:0},
+{q:"String template symbol?",options:["$","{}","\\()","#"],answer:0},
+{q:"Extension function keyword?",options:["fun","def","function","ext"],answer:0},
+{q:"Default parameter?",options:["fun func(a:Int=0)","fun func(a:Int)","fun func()","default(a)"],answer:0},
+{q:"Data class keyword?",options:["data","class","struct","type"],answer:0},
+{q:"Interface keyword?",options:["interface","abstract","class","protocol"],answer:0},
+{q:"Smart cast feature?",options:["Yes","No","Sometimes","None"],answer:0},
+{q:"Null safety operator?",options:["?.","!","??","==="],answer:0},
+{q:"To run Kotlin on JVM?",options:["Yes","No","Sometimes","None"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+kotlinQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+kotlinQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Kotlin Quiz Score: ${score} / ${kotlinQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

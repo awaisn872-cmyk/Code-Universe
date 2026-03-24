@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding:20px;background:#f5f5f5; }
+.container { max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1); }
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;} button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;} a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>React Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const reactQuiz=[
+{q:"React is a ___?",options:["Library","Framework","Language","IDE"],answer:0},
+{q:"Which method renders elements?",options:["render()","display()","show()","write()"],answer:0},
+{q:"React uses ___ DOM",options:["Virtual","Real","Shadow","None"],answer:0},
+{q:"Hook to manage state?",options:["useState","useEffect","useContext","useReducer"],answer:0},
+{q:"Hook for side effects?",options:["useEffect","useState","useReducer","useContext"],answer:0},
+{q:"To pass data from parent to child?",options:["Props","State","Context","Reducer"],answer:0},
+{q:"Which method updates state?",options:["setState()","updateState()","changeState()","modifyState()"],answer:0},
+{q:"JSX stands for?",options:["JavaScript XML","Java Script X","JS Export","JSON Script"],answer:0},
+{q:"Component type for function?",options:["Functional","Class","Pure","Render"],answer:0},
+{q:"Class component extends?",options:["React.Component","Component.React","React.Class","Component.Base"],answer:0},
+{q:"To manage global state?",options:["Context API","State","Props","Reducer"],answer:0},
+{q:"Routing in React?",options:["react-router","react-link","react-nav","react-route"],answer:0},
+{q:"Which lifecycle hook is deprecated?",options:["componentWillMount","componentDidMount","render","componentDidUpdate"],answer:0},
+{q:"React key prop used in?",options:["Lists","State","Props","Hooks"],answer:0},
+{q:"To prevent re-render?",options:["React.memo","useMemo","useCallback","PureComponent"],answer:0},
+{q:"To handle events?",options:["onClick","click","handle","doClick"],answer:0},
+{q:"Fragment tag?",options:["<> </>","<div>","<span>","<react>"],answer:0},
+{q:"Conditional rendering operator?",options:["? :","if else","switch","ternary"],answer:0},
+{q:"Default prop value?",options:["defaultProps","props.default","setDefault","initProps"],answer:0},
+{q:"To optimize performance?",options:["useMemo","useEffect","useState","useContext"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+reactQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+reactQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your React Quiz Score: ${score} / ${reactQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

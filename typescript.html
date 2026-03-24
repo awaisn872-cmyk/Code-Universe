@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn TypeScript</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn TypeScript</h1>
+    <p>Strongly-typed JavaScript for building scalable applications!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>TypeScript Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('ts-intro')">1. Introduction to TypeScript</li>
+    <div id="ts-intro" class="topic-content">
+      <pre>
+let message: string = "Hello, TypeScript!";
+console.log(message);
+      </pre>
+      <p>TypeScript is a superset of JavaScript with static typing, making code more robust.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-variables')">2. Variables & Types</li>
+    <div id="ts-variables" class="topic-content">
+      <pre>
+let name: string = "Alice";
+let age: number = 25;
+let isStudent: boolean = true;
+let scores: number[] = [90, 85, 78];
+      </pre>
+      <p>TypeScript allows defining types for variables, arrays, objects, etc.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-functions')">3. Functions</li>
+    <div id="ts-functions" class="topic-content">
+      <pre>
+function add(a: number, b: number): number {
+    return a + b;
+}
+console.log(add(5, 3));
+      </pre>
+      <p>Functions in TypeScript have typed parameters and return types.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-objects')">4. Objects & Interfaces</li>
+    <div id="ts-objects" class="topic-content">
+      <pre>
+interface Person {
+  name: string;
+  age: number;
+}
+
+let p: Person = { name: "Alice", age: 25 };
+console.log(p.name);
+      </pre>
+      <p>Interfaces define the structure of objects for type safety.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-classes')">5. Classes & OOP</li>
+    <div id="ts-classes" class="topic-content">
+      <pre>
+class Student {
+  name: string;
+  age: number;
+
+  constructor(name: string, age: number){
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello ${this.name}`);
+  }
+}
+
+let s = new Student("Alice", 25);
+s.greet();
+      </pre>
+      <p>TypeScript supports full object-oriented programming with classes and inheritance.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-generics')">6. Generics</li>
+    <div id="ts-generics" class="topic-content">
+      <pre>
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+console.log(identity<number>(5));
+console.log(identity<string>("Hello"));
+      </pre>
+      <p>Generics allow writing reusable, type-safe functions and classes.</p>
+    </div>
+
+    <li onclick="toggleContent('ts-advanced')">7. Advanced TypeScript</li>
+    <div id="ts-advanced" class="topic-content">
+      <ul>
+        <li>Type Aliases & Union Types</li>
+        <li>Enums</li>
+        <li>Modules & Namespaces</li>
+        <li>Decorators</li>
+        <li>Async/Await with Typed Promises</li>
+      </ul>
+      <pre>
+// Enum example
+enum Color { Red, Green, Blue }
+let c: Color = Color.Green;
+
+// Union type
+let val: string | number = "Hello";
+val = 42;
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | TypeScript Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

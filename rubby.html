@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Ruby</title>
+<style>
+  /* Basic Reset */
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+
+  body { background: #f4f4f9; color: #333; }
+  .container { max-width: 900px; margin: auto; padding: 20px; }
+
+  /* Header */
+  .header { text-align: center; padding: 40px 20px; background: #6C63FF; color: white; }
+  .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+  .header p { font-size: 1.2rem; margin-bottom: 20px; }
+  .btn { text-decoration: none; background: #fff; color: #6C63FF; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+  .btn:hover { background: #f0f0ff; }
+
+  /* Topics */
+  .topics h2 { text-align: center; margin: 30px 0 10px; }
+  .topic-list { list-style: none; margin-top: 20px; }
+  .topic-list li { background: #6C63FF; color: white; padding: 12px 15px; margin-bottom: 5px; cursor: pointer; border-radius: 5px; }
+  .topic-list li:hover { background: #5752d1; }
+
+  .topic-content { display: none; padding: 15px; background: #fff; color: #333; border-left: 4px solid #6C63FF; margin-bottom: 15px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; }
+  .topic-content ul { padding-left: 20px; list-style: disc; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; margin-top: 30px; font-size: 0.9rem; color: #777; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Ruby</h1>
+    <p>Simple, elegant, and powerful language for web development and scripting!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Ruby Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('ruby-intro')">1. Introduction to Ruby</li>
+    <div id="ruby-intro" class="topic-content">
+puts "Hello, Ruby!"
+    </div>
+
+    <li onclick="toggleContent('ruby-variables')">2. Variables & Data Types</li>
+    <div id="ruby-variables" class="topic-content">
+name = "Alice"      # String  
+age = 25            # Integer  
+height = 5.8        # Float  
+is_student = true   # Boolean
+    </div>
+
+    <li onclick="toggleContent('ruby-operators')">3. Operators</li>
+    <div id="ruby-operators" class="topic-content">
+# Arithmetic  
+sum = 5 + 3  
+
+# Comparison  
+is_adult = age >= 18  
+
+# Logical  
+flag = is_adult && is_student
+    </div>
+
+    <li onclick="toggleContent('ruby-conditions')">4. Conditions</li>
+    <div id="ruby-conditions" class="topic-content">
+if age >= 18  
+  puts "Adult"  
+else  
+  puts "Minor"  
+end  
+
+# Case example  
+case age  
+when 18  
+  puts "Exactly 18"  
+else  
+  puts "Other age"  
+end
+    </div>
+
+    <li onclick="toggleContent('ruby-loops')">5. Loops</li>
+    <div id="ruby-loops" class="topic-content">
+# while loop  
+i = 0  
+while i < 5  
+  puts i  
+  i += 1  
+end  
+
+# for loop  
+for j in 0..4  
+  puts j  
+end  
+
+# each loop (array)  
+fruits = ["Apple","Banana","Mango"]  
+fruits.each do |fruit|  
+  puts fruit  
+end
+    </div>
+
+    <li onclick="toggleContent('ruby-functions')">6. Methods / Functions</li>
+    <div id="ruby-functions" class="topic-content">
+def add(a, b)  
+  return a + b  
+end  
+
+puts add(5, 3)
+    </div>
+
+    <li onclick="toggleContent('ruby-oop')">7. Object-Oriented Programming</li>
+    <div id="ruby-oop" class="topic-content">
+class Person  
+  attr_accessor :name, :age  
+
+  def initialize(name, age)  
+    @name = name  
+    @age = age  
+  end  
+
+  def greet  
+    puts "Hello #{@name}"  
+  end  
+end  
+
+p = Person.new("Alice", 25)  
+p.greet
+    </div>
+
+    <li onclick="toggleContent('ruby-advanced')">8. Advanced Ruby</li>
+    <div id="ruby-advanced" class="topic-content">
+<ul>
+<li>Modules & Mixins</li>
+<li>Blocks & Procs</li>
+<li>Exception Handling</li>
+<li>Metaprogramming</li>
+<li>Gems & Libraries</li>
+</ul>
+<pre>
+# Exception Handling
+begin
+  num = Integer("abc")
+rescue => e
+  puts "Error: #{e.message}"
+end
+
+# Block example
+[1,2,3].each { |n| puts n*2 }
+</pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Ruby Learning Page</p>
+</footer>
+
+<script>
+function toggleContent(id) {
+  const content = document.getElementById(id);
+  content.style.display = (content.style.display === "block") ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

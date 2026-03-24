@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bootstrap Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Bootstrap Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const bootstrapQuiz=[
+{q:"Bootstrap developed by?",options:["Twitter","Google","Facebook","Microsoft"],answer:0},
+{q:"Bootstrap is ___?",options:["CSS Framework","JavaScript Library","Language","IDE"],answer:0},
+{q:"Bootstrap latest version?",options:["5","4","3","2"],answer:0},
+{q:"Grid system uses?",options:["12 columns","10 columns","8 columns","16 columns"],answer:0},
+{q:"Class for container?",options:["container","container-fluid","wrap","grid"],answer:0},
+{q:"Class for row?",options:["row","col","section","div"],answer:0},
+{q:"Class for column?",options:["col","row","container","div"],answer:0},
+{q:"To add button?",options:["btn","button","btn-primary","b"],answer:0},
+{q:"Button color class?",options:["btn-primary","btn","btn-danger","btn-success"],answer:0},
+{q:"To create navbar?",options:["navbar","nav","menu","nav-bar"],answer:0},
+{q:"To create card?",options:["card","panel","box","container"],answer:0},
+{q:"To add modal?",options:["modal","popup","dialog","window"],answer:0},
+{q:"To add alert?",options:["alert","msg","notify","warning"],answer:0},
+{q:"To add tooltip?",options:["tooltip","hint","hover","title"],answer:0},
+{q:"Responsive class?",options:["d-none d-md-block","d-md-none","d-sm-block","d-lg-none"],answer:0},
+{q:"Flexbox class?",options:["d-flex","flex","display-flex","df"],answer:0},
+{q:"To hide element?",options:["d-none","hide","hidden","display-none"],answer:0},
+{q:"To show element?",options:["d-block","show","visible","display-block"],answer:0},
+{q:"To float element?",options:["float-start","float-left","float-right","float-end"],answer:0},
+{q:"Container padding class?",options:["p-3","padding-3","m-3","pt-3"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+bootstrapQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+bootstrapQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Bootstrap Quiz Score: ${score} / ${bootstrapQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQL Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;}
+h3{margin-top:20px;}
+label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>SQL Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+
+<script>
+const sqlQuiz = [
+{q:"SQL stands for?", options:["Structured Query Language","Simple Query Language","Server Query Language","Standard Query Language"], answer:0},
+{q:"SQL is used for?", options:["Database management","Web designing","Game development","OS development"], answer:0},
+{q:"Which command is used to fetch data?", options:["SELECT","GET","FETCH","SHOW"], answer:0},
+{q:"Which command inserts data?", options:["INSERT","ADD","PUT","CREATE"], answer:0},
+{q:"Which command updates data?", options:["UPDATE","MODIFY","CHANGE","SET"], answer:0},
+{q:"Which command deletes data?", options:["DELETE","REMOVE","DROP","CLEAR"], answer:0},
+{q:"Which clause filters records?", options:["WHERE","FROM","ORDER","GROUP"], answer:0},
+{q:"Which keyword sorts results?", options:["ORDER BY","SORT","ARRANGE","GROUP BY"], answer:0},
+{q:"Which function counts rows?", options:["COUNT()","SUM()","TOTAL()","NUMBER()"], answer:0},
+{q:"Which keyword removes duplicates?", options:["DISTINCT","UNIQUE","DIFFERENT","REMOVE"], answer:0},
+{q:"Which command creates table?", options:["CREATE TABLE","MAKE TABLE","NEW TABLE","ADD TABLE"], answer:0},
+{q:"Which command removes table?", options:["DROP TABLE","DELETE TABLE","REMOVE TABLE","CLEAR TABLE"], answer:0},
+{q:"Primary key is used for?", options:["Unique identification","Sorting data","Deleting data","Updating data"], answer:0},
+{q:"Which constraint avoids NULL?", options:["NOT NULL","UNIQUE","CHECK","DEFAULT"], answer:0},
+{q:"Which keyword joins tables?", options:["JOIN","MERGE","CONNECT","LINK"], answer:0},
+{q:"Which JOIN returns all left rows?", options:["LEFT JOIN","RIGHT JOIN","INNER JOIN","FULL JOIN"], answer:0},
+{q:"Which function gives highest value?", options:["MAX()","TOP()","HIGH()","UPPER()"], answer:0},
+{q:"Which function gives lowest value?", options:["MIN()","LOW()","BOTTOM()","SMALL()"], answer:0},
+{q:"Which command changes table structure?", options:["ALTER TABLE","UPDATE TABLE","MODIFY TABLE","CHANGE TABLE"], answer:0},
+{q:"SQL works with which database type?", options:["Relational","Hierarchical","Network","Flat file"], answer:0}
+];
+
+const container = document.getElementById('quizContainer');
+
+sqlQuiz.forEach((item,index)=>{
+  const qDiv = document.createElement('div');
+  qDiv.innerHTML = `
+    <h3>Q${index+1}: ${item.q}</h3>
+    ${item.options.map((opt,i)=>
+      `<label>
+        <input type="radio" name="q${index}" value="${i}"> ${opt}
+      </label>`
+    ).join('')}
+    <hr>
+  `;
+  container.appendChild(qDiv);
+});
+
+const submitBtn = document.createElement('button');
+submitBtn.textContent = "Submit Quiz";
+
+submitBtn.onclick = () => {
+  let score = 0;
+  sqlQuiz.forEach((item,index)=>{
+    const radios = document.getElementsByName('q'+index);
+    radios.forEach(r=>{
+      if(r.checked && parseInt(r.value) === item.answer) score++;
+    });
+  });
+  alert(`Your SQL Quiz Score: ${score} / ${sqlQuiz.length}`);
+};
+
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

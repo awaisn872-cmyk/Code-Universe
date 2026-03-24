@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Go</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Go</h1>
+    <p>Fast, statically typed language for modern applications!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Go Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('go-intro')">1. Introduction to Go</li>
+    <div id="go-intro" class="topic-content">
+      <pre>
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, Go!")
+}
+      </pre>
+      <p>Go (Golang) is simple, fast, and widely used for backend and cloud applications.</p>
+    </div>
+
+    <li onclick="toggleContent('go-variables')">2. Variables & Types</li>
+    <div id="go-variables" class="topic-content">
+      <pre>
+var name string = "Alice"
+age := 25  // short declaration
+pi := 3.14
+      </pre>
+      <p>Go supports static typing, with easy variable declaration syntax.</p>
+    </div>
+
+    <li onclick="toggleContent('go-functions')">3. Functions</li>
+    <div id="go-functions" class="topic-content">
+      <pre>
+func add(a int, b int) int {
+    return a + b
+}
+
+fmt.Println(add(5,3))
+      </pre>
+      <p>Functions are the primary way to organize code in Go.</p>
+    </div>
+
+    <li onclick="toggleContent('go-conditions')">4. Conditions & Loops</li>
+    <div id="go-conditions" class="topic-content">
+      <pre>
+// if-else
+if age >= 18 {
+    fmt.Println("Adult")
+} else {
+    fmt.Println("Minor")
+}
+
+// for loop
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+      </pre>
+      <p>Go has simple syntax for conditionals and loops.</p>
+    </div>
+
+    <li onclick="toggleContent('go-structs')">5. Structs & Interfaces</li>
+    <div id="go-structs" class="topic-content">
+      <pre>
+type Person struct {
+    Name string
+    Age int
+}
+
+func (p Person) Greet() {
+    fmt.Println("Hello", p.Name)
+}
+
+p := Person{"Alice", 25}
+p.Greet()
+      </pre>
+      <p>Go supports structs, interfaces, and methods for OOP-like programming.</p>
+    </div>
+
+    <li onclick="toggleContent('go-advanced')">6. Advanced Go</li>
+    <div id="go-advanced" class="topic-content">
+      <ul>
+        <li>Concurrency with Goroutines & Channels</li>
+        <li>Packages & Modules</li>
+        <li>Error Handling</li>
+        <li>Standard Library & Networking</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Go Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

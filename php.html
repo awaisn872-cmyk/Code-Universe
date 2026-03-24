@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn PHP</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn PHP</h1>
+    <p>Server-side scripting language for web development!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>PHP Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('php-intro')">1. Introduction to PHP</li>
+    <div id="php-intro" class="topic-content">
+      <p>PHP is a server-side scripting language used to build dynamic websites.</p>
+      <pre>
+&lt;?php
+echo "Hello World";
+?&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-variables')">2. Variables & Data Types</li>
+    <div id="php-variables" class="topic-content">
+      <pre>
+$name = "Alice";
+$age = 25;
+
+// Data types: string, int, float, bool, array, object, null
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-operators')">3. Operators</li>
+    <div id="php-operators" class="topic-content">
+      <pre>
+// Arithmetic: +, -, *, /, %
+$sum = 5 + 3;
+
+// Comparison: ==, !=, >, <
+$result = (5 > 3);
+
+// Logical: &&, ||, !
+$flag = true && false;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-conditions')">4. Conditions (if, else, switch)</li>
+    <div id="php-conditions" class="topic-content">
+      <pre>
+$age = 18;
+
+if($age >= 18){
+    echo "Adult";
+}else{
+    echo "Minor";
+}
+
+switch($age){
+    case 18:
+        echo "Exactly 18";
+        break;
+    default:
+        echo "Other";
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-loops')">5. Loops (for, while, do-while, foreach)</li>
+    <div id="php-loops" class="topic-content">
+      <pre>
+// for loop
+for($i=0; $i&lt;5; $i++){
+    echo $i;
+}
+
+// while loop
+$i=0;
+while($i&lt;5){
+    echo $i;
+    $i++;
+}
+
+// do-while loop
+$j=0;
+do{
+    echo $j;
+    $j++;
+}while($j&lt;5);
+
+// foreach (arrays)
+$fruits = array("Apple","Banana","Mango");
+foreach($fruits as $fruit){
+    echo $fruit;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-functions')">6. Functions</li>
+    <div id="php-functions" class="topic-content">
+      <pre>
+function greet($name){
+    return "Hello ".$name;
+}
+
+echo greet("Alice");
+
+// Anonymous function
+$add = function($a,$b){ return $a+$b; };
+echo $add(5,3);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-arrays')">7. Arrays</li>
+    <div id="php-arrays" class="topic-content">
+      <pre>
+$fruits = array("Apple","Banana","Mango");
+echo $fruits[0]; // Apple
+
+// Associative array
+$person = array("name"=>"Alice","age"=>25);
+echo $person["name"];
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-strings')">8. Strings & String Functions</li>
+    <div id="php-strings" class="topic-content">
+      <pre>
+$text = "Hello World";
+echo strtoupper($text); // HELLO WORLD
+echo strtolower($text); // hello world
+echo str_replace("World","PHP",$text); // Hello PHP
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-forms')">9. Forms & User Input</li>
+    <div id="php-forms" class="topic-content">
+      <pre>
+&lt;form method="post" action="process.php"&gt;
+    Name: &lt;input type="text" name="name"&gt;
+    &lt;input type="submit"&gt;
+&lt;/form&gt;
+
+&lt;?php
+$name = $_POST['name'];
+echo "Hello ".$name;
+?&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-fileio')">10. File Handling</li>
+    <div id="php-fileio" class="topic-content">
+      <pre>
+&lt;?php
+// Write to file
+$file = fopen("data.txt","w");
+fwrite($file,"Hello PHP");
+fclose($file);
+
+// Read file
+$file = fopen("data.txt","r");
+echo fread($file,filesize("data.txt"));
+fclose($file);
+?&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-database')">11. Database (MySQL) & PDO</li>
+    <div id="php-database" class="topic-content">
+      <pre>
+&lt;?php
+$host = "localhost";
+$db = "test";
+$user = "root";
+$pass = "";
+
+// Using PDO
+try{
+    $conn = new PDO("mysql:host=$host;dbname=$db",$user,$pass);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected Successfully";
+}catch(PDOException $e){
+    echo "Connection failed: ".$e->getMessage();
+}
+?&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('php-advanced')">12. Advanced PHP Topics</li>
+    <div id="php-advanced" class="topic-content">
+      <ul>
+        <li>Sessions & Cookies</li>
+        <li>Object-Oriented PHP (Classes, Objects, Inheritance)</li>
+        <li>PHP Namespaces</li>
+        <li>PHP Exceptions</li>
+        <li>Working with JSON & APIs</li>
+        <li>PHP Regular Expressions</li>
+        <li>File Uploads & Security</li>
+        <li>Composer & Package Management</li>
+        <li>PHP MVC Framework Basics</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | PHP Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

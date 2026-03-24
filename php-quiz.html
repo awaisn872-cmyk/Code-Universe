@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PHP Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;}
+h3{margin-top:20px;}
+label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>PHP Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+
+<script>
+const phpQuiz = [
+{q:"PHP stands for?", options:["Hypertext Preprocessor","Personal Home Page","Private Home Page","Pre Hypertext Processor"], answer:0},
+{q:"PHP is a ___ language?", options:["Server-side","Client-side","Markup","Database"], answer:0},
+{q:"PHP files extension?", options:[".php",".html",".js",".ph"], answer:0},
+{q:"Which symbol is used for variables?", options:["$","#","@","&"], answer:0},
+{q:"Which tag starts PHP code?", options:["&lt;?php","&lt;php&gt;","&lt;?","&lt;script&gt;"], answer:0},
+{q:"Which tag ends PHP code?", options:["?&gt;","&lt;/php&gt;","?&gt;;","&lt;/script&gt;"], answer:0},
+{q:"Which function outputs text?", options:["echo","print()","write()","output()"], answer:0},
+{q:"Which function is used to connect MySQL?", options:["mysqli_connect()","mysql_open()","connect_db()","db_connect()"], answer:0},
+{q:"Which superglobal gets form data?", options:["$_POST","$_GET","$_FORM","$_DATA"], answer:0},
+{q:"Which superglobal stores URL data?", options:["$_GET","$_POST","$_URL","$_DATA"], answer:0},
+{q:"Which function counts array elements?", options:["count()","length()","size()","total()"], answer:0},
+{q:"Which function checks data type?", options:["gettype()","datatype()","typeof()","type()"], answer:0},
+{q:"Which loop repeats while condition true?", options:["while","for","foreach","do"], answer:0},
+{q:"Which loop is used for arrays?", options:["foreach","for","while","loop"], answer:0},
+{q:"Which statement handles errors?", options:["try-catch","error-handle","catch-throw","exception"], answer:0},
+{q:"Which function starts session?", options:["session_start()","start_session()","begin_session()","session_begin()"], answer:0},
+{q:"Which superglobal stores session data?", options:["$_SESSION","$_COOKIE","$_SERVER","$_DATA"], answer:0},
+{q:"Which superglobal stores cookie data?", options:["$_COOKIE","$_SESSION","$_SERVER","$_DATA"], answer:0},
+{q:"Which function includes file?", options:["include","add","require_file","insert"], answer:0},
+{q:"Which function stops script?", options:["exit","stop","break","end"], answer:0}
+];
+
+const container = document.getElementById('quizContainer');
+
+phpQuiz.forEach((item,index)=>{
+  const qDiv = document.createElement('div');
+  qDiv.innerHTML = `
+    <h3>Q${index+1}: ${item.q}</h3>
+    ${item.options.map((opt,i)=>`
+      <label>
+        <input type="radio" name="q${index}" value="${i}"> ${opt}
+      </label>
+    `).join('')}
+    <hr>
+  `;
+  container.appendChild(qDiv);
+});
+
+const submitBtn = document.createElement('button');
+submitBtn.textContent = "Submit Quiz";
+
+submitBtn.onclick = function () {
+  let score = 0;
+  phpQuiz.forEach((item,index)=>{
+    const radios = document.getElementsByName('q'+index);
+    for(let i=0;i<radios.length;i++){
+      if(radios[i].checked && parseInt(radios[i].value) === item.answer){
+        score++;
+      }
+    }
+  });
+  alert("Your PHP Quiz Score: " + score + " / " + phpQuiz.length);
+};
+
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

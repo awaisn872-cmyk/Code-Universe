@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Kotlin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Kotlin</h1>
+    <p>Official Android language for modern app development!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Kotlin Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('kt-intro')">1. Introduction to Kotlin</li>
+    <div id="kt-intro" class="topic-content">
+      <pre>
+fun main() {
+    println("Hello, Kotlin!")
+}
+      </pre>
+      <p>Kotlin is modern, concise, safe, and interoperable with Java, mainly for Android apps.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-variables')">2. Variables & Constants</li>
+    <div id="kt-variables" class="topic-content">
+      <pre>
+var age = 25      // mutable
+val name = "Alice" // immutable
+val pi: Double = 3.14
+      </pre>
+      <p>Use <code>var</code> for changeable values, <code>val</code> for constants.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-operators')">3. Operators</li>
+    <div id="kt-operators" class="topic-content">
+      <pre>
+// Arithmetic
+val sum = 5 + 3
+
+// Comparison
+val isAdult = age >= 18
+
+// Logical
+val flag = isAdult && true
+      </pre>
+      <p>Operators perform arithmetic, comparison, and logical operations.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-conditions')">4. Conditions</li>
+    <div id="kt-conditions" class="topic-content">
+      <pre>
+if(age >= 18){
+    println("Adult")
+} else {
+    println("Minor")
+}
+
+// When (like switch)
+when(age){
+    18 -> println("Exactly 18")
+    else -> println("Other age")
+}
+      </pre>
+      <p>Use <code>if-else</code> or <code>when</code> to control program flow.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-loops')">5. Loops</li>
+    <div id="kt-loops" class="topic-content">
+      <pre>
+// for loop
+for(i in 0..4){
+    println(i)
+}
+
+// while loop
+var j = 0
+while(j < 5){
+    println(j)
+    j++
+}
+
+// do-while
+var k = 0
+do {
+    println(k)
+    k++
+} while(k < 5)
+      </pre>
+      <p>Loops repeat code multiple times.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-functions')">6. Functions</li>
+    <div id="kt-functions" class="topic-content">
+      <pre>
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+println(add(5,3))
+      </pre>
+      <p>Functions are reusable code blocks that can return values.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-oop')">7. Object-Oriented Programming</li>
+    <div id="kt-oop" class="topic-content">
+      <pre>
+class Person(val name: String, var age: Int){
+    fun greet(){
+        println("Hello $name")
+    }
+}
+
+val p = Person("Alice", 25)
+p.greet()
+      </pre>
+      <p>Kotlin supports OOP concepts: Classes, Objects, Inheritance, and Polymorphism.</p>
+    </div>
+
+    <li onclick="toggleContent('kt-advanced')">8. Advanced Kotlin</li>
+    <div id="kt-advanced" class="topic-content">
+      <ul>
+        <li>Null Safety & Optionals</li>
+        <li>Higher-Order Functions</li>
+        <li>Lambda Expressions</li>
+        <li>Generics & Collections</li>
+        <li>Coroutines (Asynchronous Programming)</li>
+      </ul>
+      <pre>
+// Lambda
+val square = { x: Int -> x * x }
+println(square(5))
+
+// Null Safety
+var name: String? = null
+println(name ?: "No Name")
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Kotlin Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

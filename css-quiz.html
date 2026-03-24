@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | CSS Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: 'Poppins', sans-serif; padding: 20px; background: #f5f5f5; }
+  .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+  h1 { text-align: center; }
+  h3 { margin-top: 20px; }
+  label { display: block; margin: 5px 0; }
+  button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+  a { display: inline-block; margin-bottom: 20px; color: #333; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="quiz.html">← Back to Quiz Selection</a>
+  <h1>CSS Quiz</h1>
+  <p>Test your CSS knowledge! Select the correct answer for each question.</p>
+
+  <div id="quizContainer"></div>
+</div>
+
+<script>
+// CSS Quiz Data (20 Questions)
+const cssQuiz = [
+  { q: "What does CSS stand for?", options: ["Cascading Style Sheets","Computer Style Sheets","Creative Style Sheets","Colorful Style Sheets"], answer: 0 },
+  { q: "Which HTML tag is used to link a CSS file?", options: ["<link>","<style>","<css>","<script>"], answer: 0 },
+  { q: "Which property changes text color?", options: ["color","text-color","font-color","foreground-color"], answer: 0 },
+  { q: "Which property controls background color?", options: ["background-color","bgcolor","color","background"], answer: 0 },
+  { q: "Which property is used to change font size?", options: ["font-size","text-size","font-style","text-style"], answer: 0 },
+  { q: "Which property is used for text alignment?", options: ["text-align","align","font-align","text-position"], answer: 0 },
+  { q: "How do you select all <p> elements?", options: ["p","*p","paragraph","allp"], answer: 0 },
+  { q: "How to make text bold?", options: ["font-weight: bold","text-weight: bold","font-style: bold","text-style: bold"], answer: 0 },
+  { q: "How to add a border?", options: ["border","frame","outline","line"], answer: 0 },
+  { q: "Property for rounded corners?", options: ["border-radius","corner-radius","round-corner","radius"], answer: 0 },
+  { q: "Property for spacing inside an element?", options: ["padding","margin","spacing","gap"], answer: 0 },
+  { q: "Property for spacing outside an element?", options: ["margin","padding","border-spacing","gap"], answer: 0 },
+  { q: "How to display elements in a row?", options: ["display: flex","display: block","display: inline","display: grid"], answer: 0 },
+  { q: "Which property hides overflow?", options: ["overflow","clip","hidden","overflow-hidden"], answer: 0 },
+  { q: "Property to change element width?", options: ["width","size","element-width","max-width"], answer: 0 },
+  { q: "Property to change element height?", options: ["height","size","element-height","max-height"], answer: 0 },
+  { q: "How to add a shadow to text?", options: ["text-shadow","box-shadow","font-shadow","shadow-text"], answer: 0 },
+  { q: "How to set element opacity?", options: ["opacity","visibility","transparent","alpha"], answer: 0 },
+  { q: "How to change element display to none?", options: ["display: none","visibility: hidden","display: hide","visibility: none"], answer: 0 },
+  { q: "Property to control z-axis stacking?", options: ["z-index","stack","layer","order"], answer: 0 }
+];
+
+// Load Quiz
+const container = document.getElementById('quizContainer');
+
+cssQuiz.forEach((item,index) => {
+  const qDiv = document.createElement('div');
+  qDiv.innerHTML = `
+    <h3>Q${index+1}: ${item.q}</h3>
+    ${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}
+    <hr>
+  `;
+  container.appendChild(qDiv);
+});
+
+// Submit Button
+const submitBtn = document.createElement('button');
+submitBtn.textContent = "Submit Quiz";
+submitBtn.onclick = () => {
+  let score = 0;
+  cssQuiz.forEach((item,index) => {
+    const radios = document.getElementsByName('q'+index);
+    radios.forEach(r => { if(r.checked && parseInt(r.value)===item.answer) score++; });
+  });
+  alert(`Your CSS Quiz Score: ${score} / ${cssQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+
+</body>
+</html>

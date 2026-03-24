@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruby Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Ruby Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const rubyQuiz=[
+{q:"Ruby developed by?",options:["Yukihiro Matsumoto","Dennis Ritchie","James Gosling","Guido van Rossum"],answer:0},
+{q:"Ruby is ___ language?",options:["Object-Oriented","Procedural","Functional","All"],answer:3},
+{q:"File extension for Ruby?",options:[".rb",".py",".js",".java"],answer:0},
+{q:"Keyword for defining method?",options:["def","function","func","method"],answer:0},
+{q:"To define constant?",options:["CONST","const","let","var"],answer:0},
+{q:"String interpolation symbol?",options:["#{}","$()","\\()","{}"],answer:0},
+{q:"Loop keyword for range?",options:["for","while","loop","repeat"],answer:0},
+{q:"Keyword for block?",options:["do","begin","block","function"],answer:0},
+{q:"Keyword for class?",options:["class","object","module","struct"],answer:0},
+{q:"Module keyword?",options:["module","class","object","struct"],answer:0},
+{q:"Conditional keyword?",options:["if","when","switch","case"],answer:0},
+{q:"Logical OR operator?",options:["||","or","|","&&"],answer:0},
+{q:"Logical AND operator?",options:["&&","and","&","||"],answer:0},
+{q:"Array literal?",options:["[]","{}","array()","()"],answer:0},
+{q:"Hash literal?",options:["{}","[]","hash()","()"],answer:0},
+{q:"Keyword to rescue exception?",options:["rescue","catch","except","try"],answer:0},
+{q:"Keyword for yield?",options:["yield","return","break","next"],answer:0},
+{q:"To convert string to integer?",options:["to_i","int()","parseInt()","convert()"],answer:0},
+{q:"Loop break keyword?",options:["break","stop","exit","return"],answer:0},
+{q:"To run Ruby script?",options:["ruby filename.rb","run filename.rb","execute filename.rb","start filename.rb"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+rubyQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+rubyQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Ruby Quiz Score: ${score} / ${rubyQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

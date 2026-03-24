@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | C++ Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding: 20px; background: #f5f5f5; }
+.container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+h1 { text-align: center; }
+h3 { margin-top: 20px; }
+label { display: block; margin: 5px 0; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+a { display: inline-block; margin-bottom: 20px; color: #333; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>C++ Quiz</h1>
+<p>Test your C++ knowledge! Select the correct answer for each question.</p>
+<div id="quizContainer"></div>
+</div>
+<script>
+const cppQuiz = [
+{q:"Who developed C++?",options:["Bjarne Stroustrup","Dennis Ritchie","James Gosling","Guido van Rossum"],answer:0},
+{q:"C++ is a ______ language?",options:["Object-Oriented","Procedural","Functional","Logic"],answer:0},
+{q:"Which operator is for scope resolution?",options:["::","->",".",":"],answer:0},
+{q:"C++ file extension?",options:[".cpp",".c",".java",".cs"],answer:0},
+{q:"Which keyword for inheritance?",options:["public","private","protected","extend"],answer:0},
+{q:"Default access specifier for class?",options:["private","public","protected","none"],answer:0},
+{q:"Which is used for memory allocation?",options:["new","malloc","alloc","create"],answer:0},
+{q:"Which is a reference operator?",options:["&","*","%","#"],answer:0},
+{q:"Which loop is entry controlled?",options:["for","while","do-while","foreach"],answer:0},
+{q:"Keyword to define constant?",options:["const","final","define","immutable"],answer:0},
+{q:"Which is virtual function?",options:["Overridden in derived class","Regular function","Friend function","Static function"],answer:0},
+{q:"Which is correct comment?",options:["// comment","/* comment */","# comment","<!-- comment -->"],answer:0},
+{q:"Which is a destructor?",options:["~ClassName()","ClassName()","delete","destroy"],answer:0},
+{q:"Which header for cout?",options:["iostream","stdio.h","stdlib.h","math.h"],answer:0},
+{q:"Which keyword makes class abstract?",options:["virtual","abstract","interface","pure"],answer:0},
+{q:"Which operator is for pointer?",options:["*","&","->","::"],answer:0},
+{q:"Which type is used for floating?",options:["float","int","double","long"],answer:0},
+{q:"Which container is in STL?",options:["vector","list","array","matrix"],answer:0},
+{q:"Access specifier for inheritance?",options:["public, private, protected","only public","only private","only protected"],answer:0},
+{q:"Which function is entry point?",options:["main()","start()","begin()","run()"],answer:0}
+];
+const container = document.getElementById('quizContainer');
+cppQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+cppQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your C++ Quiz Score: ${score} / ${cppQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

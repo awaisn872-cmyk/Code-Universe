@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TypeScript Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>TypeScript Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const tsQuiz=[
+{q:"TypeScript developed by?",options:["Microsoft","Google","Apple","Facebook"],answer:0},
+{q:"TypeScript is ___ language?",options:["Superset of JavaScript","Scripting","Compiled","Functional"],answer:0},
+{q:"File extension?",options:[".ts",".js",".jsx",".tsx"],answer:0},
+{q:"To define variable?",options:["let","var","const","all"],answer:3},
+{q:"Type annotation syntax?",options:["let a:number","let a=num","var a:number","const a:num"],answer:0},
+{q:"Optional type symbol?",options:["?","!","#","$"],answer:0},
+{q:"Interface keyword?",options:["interface","abstract","class","type"],answer:0},
+{q:"Class keyword?",options:["class","struct","object","type"],answer:0},
+{q:"Function definition?",options:["function","func","def","fun"],answer:0},
+{q:"Union type symbol?",options:["|","&","||","&&"],answer:0},
+{q:"Generics syntax?",options:["<T>","(T)","[T]","{T}"],answer:0},
+{q:"Access modifier public?",options:["public","private","protected","all"],answer:0},
+{q:"Access modifier private?",options:["private","public","protected","all"],answer:0},
+{q:"Access modifier protected?",options:["protected","public","private","all"],answer:0},
+{q:"Arrow function syntax?",options:["()=>","->","=>","->>"],answer:2},
+{q:"Type assertion syntax?",options:["as","is","type","cast"],answer:0},
+{q:"Readonly property?",options:["readonly","const","final","static"],answer:0},
+{q:"Optional property?",options:["?","!","#","$"],answer:0},
+{q:"Enum keyword?",options:["enum","enumclass","class","type"],answer:0},
+{q:"To compile TypeScript?",options:["tsc filename.ts","node filename.ts","npm run ts","ts-run filename.ts"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+tsQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+tsQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your TypeScript Quiz Score: ${score} / ${tsQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

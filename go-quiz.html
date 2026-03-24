@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Go Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const goQuiz=[
+{q:"Go developed by?",options:["Google","Microsoft","Apple","Facebook"],answer:0},
+{q:"Go is ___ language?",options:["Compiled, statically typed","Scripting","Functional","Interpreted"],answer:0},
+{q:"File extension?",options:[".go",".golang",".g",".gl"],answer:0},
+{q:"Variable declaration?",options:["var a int = 10","let a = 10","int a = 10","a := 10"],answer:3},
+{q:"Constant keyword?",options:["const","final","let","static"],answer:0},
+{q:"Function keyword?",options:["func","function","def","fn"],answer:0},
+{q:"Loop keyword?",options:["for","while","loop","repeat"],answer:0},
+{q:"Conditional keyword?",options:["if","when","switch","case"],answer:0},
+{q:"Switch-case keyword?",options:["switch","case","select","match"],answer:0},
+{q:"Go concurrency keyword?",options:["go","async","thread","routine"],answer:0},
+{q:"Channel keyword?",options:["chan","channel","pipe","comm"],answer:0},
+{q:"To import package?",options:["import","require","include","use"],answer:0},
+{q:"Pointer keyword?",options:["*","&","ptr","ref"],answer:0},
+{q:"To define struct?",options:["struct","class","object","type"],answer:0},
+{q:"To create slice?",options:["[]int{1,2,3}","slice(1,2,3)","Array()","{}"],answer:0},
+{q:"Array length function?",options:["len()","length()","size()","count()"],answer:0},
+{q:"Map declaration?",options:["map[string]int","dict","hashmap","map()"],answer:0},
+{q:"Defer keyword?",options:["defer","finally","delay","postpone"],answer:0},
+{q:"Recover keyword?",options:["recover","catch","try","except"],answer:0},
+{q:"To run Go code?",options:["go run filename.go","go start filename.go","go exec filename.go","run go"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+goQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+goQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Go Quiz Score: ${score} / ${goQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

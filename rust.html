@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Rust</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Rust</h1>
+    <p>High-performance, memory-safe programming language!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Rust Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('rust-intro')">1. Introduction to Rust</li>
+    <div id="rust-intro" class="topic-content">
+      <pre>
+fn main() {
+    println!("Hello, Rust!");
+}
+      </pre>
+      <p>Rust is fast, safe, and used for system-level programming.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-variables')">2. Variables & Data Types</li>
+    <div id="rust-variables" class="topic-content">
+      <pre>
+let x = 5;          // immutable
+let mut y = 10;      // mutable
+let name: &str = "Alice";  // string slice
+let pi: f64 = 3.14;       // float
+      </pre>
+      <p>Variables are immutable by default. Rust has strong static typing.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-operators')">3. Operators</li>
+    <div id="rust-operators" class="topic-content">
+      <pre>
+// Arithmetic
+let sum = 5 + 3;
+
+// Comparison
+let is_adult = x >= 18;
+
+// Logical
+let flag = is_adult && true;
+      </pre>
+      <p>Rust supports arithmetic, comparison, and logical operators.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-conditions')">4. Conditions</li>
+    <div id="rust-conditions" class="topic-content">
+      <pre>
+if x >= 18 {
+    println!("Adult");
+} else {
+    println!("Minor");
+}
+
+// match (like switch)
+match x {
+    18 => println!("Exactly 18"),
+    _ => println!("Other age"),
+}
+      </pre>
+      <p>Use <code>if-else</code> or <code>match</code> for conditional logic.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-loops')">5. Loops</li>
+    <div id="rust-loops" class="topic-content">
+      <pre>
+// for loop
+for i in 0..5 {
+    println!("{}", i);
+}
+
+// while loop
+let mut j = 0;
+while j < 5 {
+    println!("{}", j);
+    j += 1;
+}
+
+// loop (infinite, break to exit)
+let mut k = 0;
+loop {
+    println!("{}", k);
+    k += 1;
+    if k == 5 { break; }
+}
+      </pre>
+      <p>Rust provides <code>for</code>, <code>while</code>, and <code>loop</code>.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-functions')">6. Functions</li>
+    <div id="rust-functions" class="topic-content">
+      <pre>
+fn add(a: i32, b: i32) -> i32 {
+    return a + b;
+}
+
+println!("{}", add(5,3));
+      </pre>
+      <p>Functions are reusable blocks that can return values.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-ownership')">7. Ownership & Borrowing</li>
+    <div id="rust-ownership" class="topic-content">
+      <pre>
+// Ownership example
+let s1 = String::from("Hello");
+let s2 = s1; // s1 is moved, s2 owns the value
+
+// Borrowing
+let s3 = &s2; // reference, no ownership transfer
+      </pre>
+      <p>Rust uses ownership and borrowing to manage memory safely.</p>
+    </div>
+
+    <li onclick="toggleContent('rust-advanced')">8. Advanced Rust</li>
+    <div id="rust-advanced" class="topic-content">
+      <ul>
+        <li>Structs & Enums</li>
+        <li>Traits & Generics</li>
+        <li>Error Handling (Result & Option)</li>
+        <li>Modules & Crates</li>
+        <li>Concurrency & Threads</li>
+      </ul>
+      <pre>
+// Struct
+struct Person { name: String, age: u32 }
+let p = Person { name: String::from("Alice"), age: 25 };
+
+// Enum
+enum Direction { Up, Down, Left, Right }
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Rust Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

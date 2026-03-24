@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn HTML</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn HTML</h1>
+    <p>HTML is the foundation of every website — Build structure with ease!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>HTML Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+    <!-- Beginner -->
+    <li onclick="toggleContent('html-intro')">1. Introduction to HTML</li>
+    <div id="html-intro" class="topic-content">
+      <p>HTML stands for HyperText Markup Language. It is used to create the structure of web pages.</p>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;My Page&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello World&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-elements')">2. HTML Elements & Tags</li>
+    <div id="html-elements" class="topic-content">
+      <p>Elements are building blocks of HTML. Example tags: &lt;p&gt;, &lt;h1&gt;, &lt;a&gt;.</p>
+      <pre>
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-attributes')">3. HTML Attributes</li>
+    <div id="html-attributes" class="topic-content">
+      <p>Attributes provide additional info to elements. Example: id, class, href, src.</p>
+      <pre>
+&lt;img src="image.jpg" alt="My Image"&gt;
+&lt;a href="https://example.com" target="_blank"&gt;Open Link&lt;/a&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-headings')">4. Headings & Paragraphs</li>
+    <div id="html-headings" class="topic-content">
+      <pre>
+&lt;h1&gt;Heading 1&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-lists')">5. Lists (Ordered & Unordered)</li>
+    <div id="html-lists" class="topic-content">
+      <pre>
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;First&lt;/li&gt;
+  &lt;li&gt;Second&lt;/li&gt;
+&lt;/ol&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-links-images')">6. Links & Images</li>
+    <div id="html-links-images" class="topic-content">
+      <pre>
+&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;img src="image.jpg" alt="My Image"&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-forms')">7. Forms & Input</li>
+    <div id="html-forms" class="topic-content">
+      <pre>
+&lt;form&gt;
+  &lt;label&gt;Name:&lt;/label&gt;
+  &lt;input type="text" name="name"&gt;
+  &lt;input type="submit"&gt;
+&lt;/form&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-tables')">8. Tables</li>
+    <div id="html-tables" class="topic-content">
+      <pre>
+&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt>Name&lt;/th&gt;&lt;th&gt;Age&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;23&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-media')">9. Audio & Video</li>
+    <div id="html-media" class="topic-content">
+      <pre>
+&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+
+&lt;video width="320" controls&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('html-semantics')">10. Semantic HTML</li>
+    <div id="html-semantics" class="topic-content">
+      <p>Semantic tags: &lt;header&gt;, &lt;footer&gt;, &lt;article&gt;, &lt;section&gt; etc.</p>
+      <pre>
+&lt;header&gt;Header Content&lt;/header&gt;
+&lt;section&gt;Main Section&lt;/section&gt;
+&lt;footer&gt;Footer Content&lt;/footer&gt;
+      </pre>
+    </div>
+
+    <!-- Advanced / Professional -->
+    <li onclick="toggleContent('html-advanced')">11. Advanced HTML Topics</li>
+    <div id="html-advanced" class="topic-content">
+      <ul>
+        <li>HTML5 New Elements: &lt;canvas&gt;, &lt;svg&gt;, &lt;figure&gt;, &lt;figcaption&gt;</li>
+        <li>Forms: Validation, Input Types, Placeholder, Required</li>
+        <li>Media & Embed: Audio, Video, iframe</li>
+        <li>Meta Tags & SEO Basics</li>
+        <li>Accessibility (ARIA, Alt Text)</li>
+        <li>Responsive HTML Practices</li>
+        <li>Custom Data Attributes</li>
+        <li>Drag & Drop API</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | HTML Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

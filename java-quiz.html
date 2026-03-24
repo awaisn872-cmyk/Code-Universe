@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Java Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding: 20px; background: #f5f5f5; }
+.container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+h1 { text-align: center; }
+h3 { margin-top: 20px; }
+label { display: block; margin: 5px 0; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+a { display: inline-block; margin-bottom: 20px; color: #333; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Java Quiz</h1>
+<p>Test your Java knowledge! Select the correct answer for each question.</p>
+<div id="quizContainer"></div>
+</div>
+<script>
+const javaQuiz = [
+{q:"Who developed Java?",options:["James Gosling","Bjarne Stroustrup","Guido van Rossum","Dennis Ritchie"],answer:0},
+{q:"Java is ___ typed language?",options:["Strongly typed","Weakly typed","Dynamically typed","Loosely typed"],answer:0},
+{q:"Keyword for inheritance?",options:["extends","implements","inherits","super"],answer:0},
+{q:"Java file extension?",options:[".java",".class",".js",".cpp"],answer:0},
+{q:"Which method is entry point?",options:["main()","start()","run()","init()"],answer:0},
+{q:"Java platform is?",options:["Cross-platform","Windows only","Linux only","Mac only"],answer:0},
+{q:"Which keyword makes class abstract?",options:["abstract","virtual","interface","extends"],answer:0},
+{q:"Which loop is entry controlled?",options:["for","while","do-while","foreach"],answer:0},
+{q:"Method to start a thread?",options:["start()","run()","begin()","init()"],answer:0},
+{q:"Which keyword to define constant?",options:["final","const","static","immutable"],answer:0},
+{q:"Access specifier for inheritance?",options:["public, private, protected","only public","only private","only protected"],answer:0},
+{q:"Which is used for interface?",options:["interface","abstract","class","module"],answer:0},
+{q:"Keyword for package?",options:["package","import","namespace","module"],answer:0},
+{q:"Keyword to handle exceptions?",options:["try/catch","throw/catch","handle/exception","error/catch"],answer:0},
+{q:"Which operator is instanceof?",options:["instanceof","typeof","is","classof"],answer:0},
+{q:"Method to get length of array?",options:["length","size","count","len"],answer:0},
+{q:"Keyword for synchronization?",options:["synchronized","sync","lock","threadsafe"],answer:0},
+{q:"Which collection allows duplicate?",options:["List","Set","Map","Queue"],answer:0},
+{q:"Keyword for interface implementation?",options:["implements","extends","inherits","interface"],answer:0},
+{q:"Default value of boolean?",options:["false","true","0","null"],answer:0}
+];
+
+const container = document.getElementById('quizContainer');
+javaQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+javaQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Java Quiz Score: ${score} / ${javaQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

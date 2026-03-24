@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swift Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5}.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1)}h1{text-align:center}h3{margin-top:20px}label{display:block;margin:5px 0}button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer}a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none}</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Swift Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const swiftQuiz=[
+{q:"Swift developed by?",options:["Apple","Microsoft","Google","Oracle"],answer:0},
+{q:"Swift is ___ language?",options:["Compiled","Interpreted","Scripting","Functional"],answer:0},
+{q:"Keyword for constant?",options:["let","const","var","static"],answer:0},
+{q:"Entry point function?",options:["main()","start()","init()","run()"],answer:0},
+{q:"Data type for integer?",options:["Int","Integer","Number","Long"],answer:0},
+{q:"Data type for string?",options:["String","str","Text","char"],answer:0},
+{q:"Optional type symbol?",options:["?","!","#","$"],answer:0},
+{q:"Loop type in Swift?",options:["for-in","while","repeat-while","all"],answer:3},
+{q:"To define function?",options:["func","function","def","method"],answer:0},
+{q:"Keyword for class?",options:["class","object","module","struct"],answer:0},
+{q:"Keyword for struct?",options:["struct","class","object","type"],answer:0},
+{q:"Access modifier public?",options:["public","private","internal","protected"],answer:0},
+{q:"Access modifier private?",options:["private","public","internal","protected"],answer:0},
+{q:"Switch case syntax uses?",options:["switch-case","if-else","when","choose"],answer:0},
+{q:"Operator for nil?",options:["nil","null","None","0"],answer:0},
+{q:"String interpolation?",options:["\\()","${}","{}","$()"],answer:0},
+{q:"Loop break keyword?",options:["break","exit","stop","end"],answer:0},
+{q:"To define optional variable?",options:["var?","let?","opt","optional"],answer:0},
+{q:"Array declaration?",options:["var arr:[Int]","array arr","arr:[]","Int[] arr"],answer:0},
+{q:"Dictionary declaration?",options:["var dict:[String:Int]","dict = {}","map","dictionary"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+swiftQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+swiftQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your Swift Quiz Score: ${score} / ${swiftQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

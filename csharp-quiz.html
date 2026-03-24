@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C# Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding:20px;background:#f5f5f5; }
+.container { max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1); }
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;} button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;} a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>C# Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const csharpQuiz=[
+{q:"C# was developed by?",options:["Microsoft","Sun Microsystems","Oracle","IBM"],answer:0},
+{q:"C# is ___ language?",options:["Object-Oriented","Procedural","Functional","Scripting"],answer:0},
+{q:"File extension for C#?",options:[".cs",".c",".cpp",".java"],answer:0},
+{q:"Keyword for constant?",options:["const","final","immutable","static"],answer:0},
+{q:"Entry point method?",options:["Main()","Start()","Init()","Run()"],answer:0},
+{q:"To handle exceptions?",options:["try/catch","catch/try","handle","error"],answer:0},
+{q:"C# is compiled or interpreted?",options:["Compiled","Interpreted","Both","None"],answer:0},
+{q:"Keyword for inheritance?",options:[":","extends","inherits","super"],answer:0},
+{q:"Access modifier for public?",options:["public","private","protected","internal"],answer:0},
+{q:"Interface keyword?",options:["interface","abstract","class","module"],answer:0},
+{q:"Loop to iterate known times?",options:["for","while","do-while","foreach"],answer:0},
+{q:"Loop to iterate unknown times?",options:["while","for","do-while","foreach"],answer:0},
+{q:"To define array?",options:["int[] arr;","array arr;","arr[];","array<int> arr;"],answer:0},
+{q:"Event handling keyword?",options:["event","handle","trigger","action"],answer:0},
+{q:"To create delegate?",options:["delegate","function","pointer","handler"],answer:0},
+{q:"Keyword for static method?",options:["static","const","final","readonly"],answer:0},
+{q:"To define property?",options:["get; set;","prop;","define;","attribute;"],answer:0},
+{q:"Keyword for abstract class?",options:["abstract","interface","virtual","class"],answer:0},
+{q:"Keyword for override?",options:["override","virtual","abstract","super"],answer:0},
+{q:"To include namespace?",options:["using","import","include","namespace"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+csharpQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+csharpQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your C# Quiz Score: ${score} / ${csharpQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

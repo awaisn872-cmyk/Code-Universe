@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn MySQL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn MySQL</h1>
+    <p>Server-side database management using MySQL!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>MySQL Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('mysql-intro')">1. Introduction to MySQL</li>
+    <div id="mysql-intro" class="topic-content">
+      <pre>
+-- MySQL is a relational database management system (RDBMS)
+CREATE DATABASE SchoolDB;
+USE SchoolDB;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('mysql-tables')">2. Creating Tables</li>
+    <div id="mysql-tables" class="topic-content">
+      <pre>
+CREATE TABLE Students(
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(50),
+    Age INT
+);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('mysql-dml')">3. Data Manipulation</li>
+    <div id="mysql-dml" class="topic-content">
+      <pre>
+INSERT INTO Students(Name, Age) VALUES('Alice', 25);
+UPDATE Students SET Age=26 WHERE Name='Alice';
+DELETE FROM Students WHERE Age &lt; 18;
+SELECT * FROM Students;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('mysql-advanced')">4. Advanced MySQL</li>
+    <div id="mysql-advanced" class="topic-content">
+      <ul>
+        <li>JOINs (INNER, LEFT, RIGHT, FULL)</li>
+        <li>Stored Procedures & Functions</li>
+        <li>Triggers & Views</li>
+        <li>Indexes & Constraints</li>
+        <li>User Management & Privileges</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | MySQL Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

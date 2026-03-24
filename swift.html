@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Swift</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Swift</h1>
+    <p>Apple's language for iOS and macOS apps!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Swift Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('swift-intro')">1. Introduction to Swift</li>
+    <div id="swift-intro" class="topic-content">
+      <pre>
+print("Hello, Swift!")
+      </pre>
+      <p>Swift is a modern, fast, and safe language used for developing Apple apps.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-variables')">2. Variables & Constants</li>
+    <div id="swift-variables" class="topic-content">
+      <pre>
+var age = 25          // variable
+let name = "Alice"    // constant
+let pi: Double = 3.14 // type annotation
+      </pre>
+      <p>Use <code>var</code> for changeable values, <code>let</code> for constants.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-operators')">3. Operators</li>
+    <div id="swift-operators" class="topic-content">
+      <pre>
+// Arithmetic
+let sum = 5 + 3
+
+// Comparison
+let isAdult = age >= 18
+
+// Logical
+let flag = isAdult && true
+      </pre>
+      <p>Operators perform calculations, comparisons, and logic operations.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-conditions')">4. Conditions</li>
+    <div id="swift-conditions" class="topic-content">
+      <pre>
+if age >= 18 {
+    print("Adult")
+} else {
+    print("Minor")
+}
+
+// Switch
+switch age {
+case 18:
+    print("Exactly 18")
+default:
+    print("Other age")
+}
+      </pre>
+      <p>Use <code>if-else</code> or <code>switch</code> to control program flow.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-loops')">5. Loops</li>
+    <div id="swift-loops" class="topic-content">
+      <pre>
+// for loop
+for i in 0..<5 {
+    print(i)
+}
+
+// while loop
+var j = 0
+while j < 5 {
+    print(j)
+    j += 1
+}
+
+// repeat-while
+var k = 0
+repeat {
+    print(k)
+    k += 1
+} while k < 5
+      </pre>
+      <p>Loops allow repeating code multiple times.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-functions')">6. Functions</li>
+    <div id="swift-functions" class="topic-content">
+      <pre>
+func add(a: Int, b: Int) -> Int {
+    return a + b
+}
+print(add(a: 5, b: 3))
+      </pre>
+      <p>Functions are reusable code blocks that can return values.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-oop')">7. Object-Oriented Programming</li>
+    <div id="swift-oop" class="topic-content">
+      <pre>
+class Person {
+    var name: String
+    var age: Int
+
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+
+    func greet() {
+        print("Hello \(name)")
+    }
+}
+
+let p = Person(name: "Alice", age: 25)
+p.greet()
+      </pre>
+      <p>Swift supports classes, objects, inheritance, encapsulation, and polymorphism.</p>
+    </div>
+
+    <li onclick="toggleContent('swift-advanced')">8. Advanced Swift</li>
+    <div id="swift-advanced" class="topic-content">
+      <ul>
+        <li>Protocols & Delegates</li>
+        <li>Closures (Anonymous Functions)</li>
+        <li>Optionals & Nil Handling</li>
+        <li>Generics</li>
+        <li>Error Handling (try-catch)</li>
+      </ul>
+      <pre>
+// Optional Example
+var name: String? = "Alice"
+print(name ?? "No Name")
+
+// Closure
+let square = { (x: Int) -> Int in x * x }
+print(square(5))
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Swift Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Quiz Selection</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.header {
+  background: linear-gradient(to right, #0d1b2a, #1b2f4a);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  animation: headerZoom 1s ease-out;
+}
+
+@keyframes headerZoom {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.header h1 { margin: 0; font-size: 2.8em; }
+.header p { margin: 10px 0; font-size: 1.2em; }
+
+.container { max-width: 1100px; margin: 30px auto; padding: 0 20px; }
+
+.btn-back {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn-back:hover { color: #4CAF50; }
+
+.search-bar { margin-bottom: 20px; text-align: center; }
+.search-bar input {
+  width: 100%; max-width: 400px;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+.search-bar input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 10px rgba(76,175,80,0.3);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: 25px;
+  transition: all 0.3s;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+.card span {
+  font-weight: 600;
+  font-size: 1em;
+  text-align: center;
+}
+
+
+.card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.card.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  transition: all 0.3s;
+}
+
+@media(max-width:500px){
+  .header h1 { font-size:2em; }
+  .header p { font-size:1em; }
+  .card img { width:50px; height:50px; }
+}
+
+
+.footer {
+  background: linear-gradient(to right, #0d1b2a, #1b2f4a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  transition: all 0.3s ease;
+}
+.footer p { margin: 0; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1>CodeUniverse Quiz Hub</h1>
+  <p>Select a language or framework to start your quiz</p>
+</header>
+
+<div class="container">
+  <a href="index.html" class="btn-back">← Back to Main Page</a>
+  
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a language or framework..." onkeyup="filterCards()">
+  </div>
+
+  <div class="cards" id="cardsContainer">
+    <a href="html-quiz.html" class="card"><img src="icons/html.png" alt="HTML"><span>HTML Quiz</span></a>
+    <a href="css-quiz.html" class="card"><img src="icons/css.png" alt="CSS"><span>CSS Quiz</span></a>
+    <a href="js-quiz.html" class="card"><img src="icons/js.png" alt="JavaScript"><span>JavaScript Quiz</span></a>
+    <a href="py-quiz.html" class="card"><img src="icons/python.png" alt="Python"><span>Python Quiz</span></a>
+    <a href="cpp-quiz.html" class="card"><img src="icons/cpp.png" alt="C++"><span>C++ Quiz</span></a>
+    <a href="java-quiz.html" class="card"><img src="icons/java.png" alt="Java"><span>Java Quiz</span></a>
+    <a href="php-quiz.html" class="card"><img src="icons/php.png" alt="PHP"><span>PHP Quiz</span></a>
+    <a href="c-quiz.html" class="card"><img src="icons/c.png" alt="C"><span>C Quiz</span></a>
+    <a href="sql-quiz.html" class="card"><img src="icons/sql.png" alt="SQL"><span>SQL Quiz</span></a>
+    <a href="mysql-quiz.html" class="card"><img src="icons/mysql.png" alt="MySQL"><span>MySQL Quiz</span></a>
+    <a href="csharp-quiz.html" class="card"><img src="icons/csharp.png" alt="C#"><span>C# Quiz</span></a>
+    <a href="swift-quiz.html" class="card"><img src="icons/swift.png" alt="Swift"><span>Swift Quiz</span></a>
+    <a href="kotlin-quiz.html" class="card"><img src="icons/kotlin.png" alt="Kotlin"><span>Kotlin Quiz</span></a>
+    <a href="rubby-quiz.html" class="card"><img src="icons/ruby.png" alt="Ruby"><span>Ruby Quiz</span></a>
+    <a href="rust-quiz.html" class="card"><img src="icons/rust.png" alt="Rust"><span>Rust Quiz</span></a>
+    <a href="matlab-quiz.html" class="card"><img src="icons/matlab.png" alt="MATLAB"><span>MATLAB Quiz</span></a>
+    <a href="typescript-quiz.html" class="card"><img src="icons/typescript.png" alt="TypeScript"><span>TypeScript Quiz</span></a>
+    <a href="scala-quiz.html" class="card"><img src="icons/scala.png" alt="Scala"><span>Scala Quiz</span></a>
+    <a href="nodejs-quiz.html" class="card"><img src="icons/nodejs.png" alt="Node.js"><span>Node.js Quiz</span></a>
+    <a href="bootstrap-quiz.html" class="card"><img src="icons/bootstrap.png" alt="Bootstrap"><span>Bootstrap Quiz</span></a>
+    <a href="react-quiz.html" class="card"><img src="icons/react.png" alt="React"><span>React Quiz</span></a>
+    <a href="go-quiz.html" class="card"><img src="icons/go.png" alt="Go"><span>Go Quiz</span></a>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse. Built for Students, By Developers.</p>
+</footer>
+
+<script>
+function filterCards(){
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.getElementById('cardsContainer').getElementsByClassName('card');
+  for(let i=0; i<cards.length; i++){
+    const cardText = cards[i].innerText.toLowerCase();
+    if(cardText.includes(input)){
+      cards[i].classList.add('show');
+      cards[i].classList.remove('hide');
+    } else {
+      cards[i].classList.add('hide');
+      cards[i].classList.remove('show');
+    }
+  }
+}
+</script>
+
+</body>
+</html>

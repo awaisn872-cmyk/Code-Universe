@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Scala</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Scala</h1>
+    <p>Scalable language for functional and object-oriented programming!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Scala Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('scala-intro')">1. Introduction to Scala</li>
+    <div id="scala-intro" class="topic-content">
+      <pre>
+object HelloWorld {
+  def main(args: Array[String]): Unit = {
+    println("Hello, Scala!")
+  }
+}
+      </pre>
+      <p>Scala combines functional and object-oriented programming paradigms.</p>
+    </div>
+
+    <li onclick="toggleContent('scala-variables')">2. Variables & Data Types</li>
+    <div id="scala-variables" class="topic-content">
+      <pre>
+var name: String = "Alice" // mutable
+val age: Int = 25           // immutable
+val pi: Double = 3.14
+      </pre>
+      <p>Use <code>var</code> for changeable values, <code>val</code> for constants.</p>
+    </div>
+
+    <li onclick="toggleContent('scala-functions')">3. Functions</li>
+    <div id="scala-functions" class="topic-content">
+      <pre>
+def add(a: Int, b: Int): Int = {
+  a + b
+}
+println(add(5,3))
+      </pre>
+      <p>Functions are reusable blocks of code.</p>
+    </div>
+
+    <li onclick="toggleContent('scala-oop')">4. Classes & Objects</li>
+    <div id="scala-oop" class="topic-content">
+      <pre>
+class Person(val name: String, var age: Int){
+  def greet(): Unit = println(s"Hello $name")
+}
+
+val p = new Person("Alice", 25)
+p.greet()
+      </pre>
+      <p>Scala supports classes, objects, and OOP principles.</p>
+    </div>
+
+    <li onclick="toggleContent('scala-advanced')">5. Advanced Scala</li>
+    <div id="scala-advanced" class="topic-content">
+      <ul>
+        <li>Traits & Inheritance</li>
+        <li>Functional Programming (map, filter, reduce)</li>
+        <li>Pattern Matching</li>
+        <li>Collections & Generics</li>
+      </ul>
+      <pre>
+val numbers = List(1,2,3,4,5)
+val squares = numbers.map(x => x*x)
+println(squares)
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Scala Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

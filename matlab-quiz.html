@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATLAB Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:'Poppins',sans-serif;padding:20px;background:#f5f5f5;}
+.container{max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;}
+button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;}
+a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>MATLAB Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const matlabQuiz=[
+{q:"MATLAB stands for?",options:["Matrix Laboratory","Math Lab","Matrix Lab","Math Language"],answer:0},
+{q:"MATLAB is primarily used for?",options:["Numerical Computing","Web Development","Mobile Apps","Databases"],answer:0},
+{q:"File extension for scripts?",options:[".m",".mat",".mb",".ml"],answer:0},
+{q:"To define array?",options:["[1 2 3]","{1,2,3}","array(1,2,3)","(1,2,3)"],answer:0},
+{q:"To define matrix?",options:["[1 2;3 4]","{1 2;3 4}","matrix(1,2,3,4)","(1 2;3 4)"],answer:0},
+{q:"Function definition keyword?",options:["function","def","func","method"],answer:0},
+{q:"Loop keyword?",options:["for","while","loop","repeat"],answer:0},
+{q:"Conditional keyword?",options:["if","when","switch","case"],answer:0},
+{q:"To plot graph?",options:["plot()","graph()","draw()","chart()"],answer:0},
+{q:"To hold plot?",options:["hold on","keep","retain","store"],answer:0},
+{q:"To clear variables?",options:["clear","reset","delete","remove"],answer:0},
+{q:"To clear command window?",options:["clc","clearc","cmdclear","windowclear"],answer:0},
+{q:"To get size of matrix?",options:["size()","length()","dim()","shape()"],answer:0},
+{q:"Element-wise multiplication?",options:[".*","*","x","dot"],answer:0},
+{q:"Element-wise division?",options:["./","/","%","div"],answer:0},
+{q:"Logical AND?",options:["&","&&","and","AND"],answer:0},
+{q:"Logical OR?",options:["|","||","or","OR"],answer:0},
+{q:"Transpose matrix?",options:["'","transpose()","T","~"],answer:0},
+{q:"Inverse of matrix?",options:["inv()","inverse()","^-1","invert()"],answer:0},
+{q:"To save workspace?",options:["save","store","export","write"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+matlabQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+matlabQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your MATLAB Quiz Score: ${score} / ${matlabQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

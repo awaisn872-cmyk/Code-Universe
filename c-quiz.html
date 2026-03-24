@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C Quiz</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding:20px;background:#f5f5f5; }
+.container { max-width:800px;margin:auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,0.1); }
+h1{text-align:center;} h3{margin-top:20px;} label{display:block;margin:5px 0;} button{margin-top:20px;padding:10px 20px;font-size:16px;border-radius:5px;background:#4CAF50;color:white;border:none;cursor:pointer;} a{display:inline-block;margin-bottom:20px;color:#333;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>C Quiz</h1>
+<div id="quizContainer"></div>
+</div>
+<script>
+const cQuiz=[
+{q:"C was developed by?",options:["Dennis Ritchie","Bjarne Stroustrup","James Gosling","Guido van Rossum"],answer:0},
+{q:"C is a ___ language?",options:["Procedural","Object-Oriented","Functional","Scripting"],answer:0},
+{q:"File extension of C?",options:[".c",".cpp",".java",".cs"],answer:0},
+{q:"Keyword for constant?",options:["const","define","immutable","final"],answer:0},
+{q:"Entry point function?",options:["main()","start()","init()","run()"],answer:0},
+{q:"Operator for pointer?",options:["*","&","->","::"],answer:0},
+{q:"Keyword to return value?",options:["return","exit","break","goto"],answer:0},
+{q:"Loop for unknown times?",options:["while","for","do-while","repeat"],answer:0},
+{q:"Function to print?",options:["printf()","cout","echo()","print()"],answer:0},
+{q:"Function to read?",options:["scanf()","cin","input()","read()"],answer:0},
+{q:"Which header for printf?",options:["stdio.h","iostream","stdlib.h","math.h"],answer:0},
+{q:"Keyword to define macros?",options:["#define","#macro","#include","#const"],answer:0},
+{q:"Which operator for address?",options:["&","*","%","$"],answer:0},
+{q:"Escape sequence for newline?",options:["\\n","\\t","\\r","\\0"],answer:0},
+{q:"Which keyword to break loop?",options:["break","stop","exit","return"],answer:0},
+{q:"Keyword for conditional?",options:["if","when","switch","case"],answer:0},
+{q:"Data type for integer?",options:["int","integer","long","short"],answer:0},
+{q:"Data type for character?",options:["char","string","text","byte"],answer:0},
+{q:"C is compiled or interpreted?",options:["Compiled","Interpreted","Both","None"],answer:0},
+{q:"Which operator for modulo?",options:["%","+","-","/"],answer:0}
+];
+const container=document.getElementById('quizContainer');
+cQuiz.forEach((item,index)=>{
+const qDiv=document.createElement('div');
+qDiv.innerHTML=`<h3>Q${index+1}: ${item.q}</h3>${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}<hr>`;
+container.appendChild(qDiv);
+});
+const submitBtn=document.createElement('button');
+submitBtn.textContent="Submit Quiz";
+submitBtn.onclick=()=>{
+let score=0;
+cQuiz.forEach((item,index)=>{
+const radios=document.getElementsByName('q'+index);
+radios.forEach(r=>{if(r.checked && parseInt(r.value)===item.answer)score++;});
+});
+alert(`Your C Quiz Score: ${score} / ${cQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn JavaScript</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn JavaScript</h1>
+    <p>Make your websites interactive and dynamic!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>JavaScript Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('js-intro')">1. Introduction to JavaScript</li>
+    <div id="js-intro" class="topic-content">
+      <p>JavaScript is a programming language used to make websites interactive and dynamic.</p>
+      <pre>
+console.log("Hello World");
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-variables')">2. Variables & Data Types</li>
+    <div id="js-variables" class="topic-content">
+      <pre>
+// Variables
+let name = "Alice";
+const pi = 3.14;
+var age = 25;
+
+// Data types: string, number, boolean, undefined, null, object
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-operators')">3. Operators</li>
+    <div id="js-operators" class="topic-content">
+      <pre>
+// Arithmetic
+let sum = 5 + 3;
+
+// Comparison
+console.log(5 > 3); // true
+
+// Logical
+console.log(true && false); // false
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-conditions')">4. Conditions (if, else, switch)</li>
+    <div id="js-conditions" class="topic-content">
+      <pre>
+let age = 18;
+if(age >= 18){
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+switch(age){
+  case 18:
+    console.log("Exactly 18");
+    break;
+  default:
+    console.log("Other age");
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-loops')">5. Loops (for, while, do-while)</li>
+    <div id="js-loops" class="topic-content">
+      <pre>
+// for loop
+for(let i=0; i<5; i++){
+  console.log(i);
+}
+
+// while loop
+let j = 0;
+while(j<5){
+  console.log(j);
+  j++;
+}
+
+// do-while
+let k = 0;
+do{
+  console.log(k);
+  k++;
+}while(k<5);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-functions')">6. Functions</li>
+    <div id="js-functions" class="topic-content">
+      <pre>
+function greet(name){
+  return "Hello " + name;
+}
+
+console.log(greet("Alice"));
+
+// ES6 Arrow Function
+const add = (a,b) => a+b;
+console.log(add(5,3));
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-arrays')">7. Arrays</li>
+    <div id="js-arrays" class="topic-content">
+      <pre>
+let fruits = ["Apple", "Banana", "Mango"];
+console.log(fruits[0]); // Apple
+
+fruits.push("Orange");
+console.log(fruits.length);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-objects')">8. Objects</li>
+    <div id="js-objects" class="topic-content">
+      <pre>
+let person = {
+  name: "Alice",
+  age: 25,
+  greet: function(){
+    console.log("Hello");
+  }
+};
+
+console.log(person.name);
+person.greet();
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-dom')">9. DOM Manipulation</li>
+    <div id="js-dom" class="topic-content">
+      <pre>
+// Select element
+const heading = document.querySelector("h1");
+
+// Change content
+heading.textContent = "Hello World";
+
+// Add class
+heading.classList.add("highlight");
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-events')">10. Events</li>
+    <div id="js-events" class="topic-content">
+      <pre>
+const button = document.querySelector("button");
+
+button.addEventListener("click", function(){
+  alert("Button Clicked!");
+});
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('js-advanced')">11. Advanced JavaScript</li>
+    <div id="js-advanced" class="topic-content">
+      <ul>
+        <li>ES6 Features: let, const, arrow functions, template literals</li>
+        <li>Objects & Arrays: Destructuring, Spread, Rest</li>
+        <li>Fetch API / AJAX</li>
+        <li>Async / Await & Promises</li>
+        <li>LocalStorage & SessionStorage</li>
+        <li>Modules & Import / Export</li>
+        <li>JSON parsing & stringify</li>
+        <li>Error Handling: try / catch / throw</li>
+        <li>Events & Event Delegation</li>
+        <li>Timers: setTimeout, setInterval</li>
+        <li>DOM Traversal & Manipulation</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | JavaScript Learning Page</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

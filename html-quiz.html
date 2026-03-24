@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Quiz</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  padding:20px;
+  background:#f5f5f5;
+}
+.container{
+  max-width:800px;
+  margin:auto;
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+h1{text-align:center;}
+h3{margin-top:20px;}
+label{display:block;margin:5px 0;}
+button{
+  margin-top:20px;
+  padding:10px 20px;
+  font-size:16px;
+  border-radius:5px;
+  background:#4CAF50;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+a{
+  display:inline-block;
+  margin-bottom:20px;
+  color:#333;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <a href="quiz.html">← Back to Quiz Selection</a>
+  <h1>HTML Quiz</h1>
+  <div id="quizContainer"></div>
+</div>
+
+<script>
+const htmlQuiz = [
+{q:"HTML stands for?",options:["HyperText Markup Language","HighText Machine Language","Hyper Tool Markup Language","Hyperlinks Text Markup"],answer:0},
+{q:"HTML is used for?",options:["Web structure","Styling","Programming","Database"],answer:0},
+{q:"HTML file extension?",options:[".html",".ht",".hml",".web"],answer:0},
+{q:"Who invented HTML?",options:["Tim Berners-Lee","Bill Gates","Mark Zuckerberg","Steve Jobs"],answer:0},
+{q:"HTML tag for paragraph?",options:["&lt;p&gt;","&lt;h1&gt;","&lt;div&gt;","&lt;span&gt;"],answer:0},
+{q:"HTML tag for link?",options:["&lt;a&gt;","&lt;link&gt;","&lt;href&gt;","&lt;url&gt;"],answer:0},
+{q:"HTML tag for image?",options:["&lt;img&gt;","&lt;image&gt;","&lt;pic&gt;","&lt;src&gt;"],answer:0},
+{q:"Attribute for image path?",options:["src","href","link","path"],answer:0},
+{q:"Attribute for alternative text?",options:["alt","title","name","id"],answer:0},
+{q:"HTML tag for table row?",options:["&lt;tr&gt;","&lt;td&gt;","&lt;th&gt;","&lt;table&gt;"],answer:0},
+{q:"HTML tag for table data?",options:["&lt;td&gt;","&lt;tr&gt;","&lt;th&gt;","&lt;table&gt;"],answer:0},
+{q:"HTML tag for list item?",options:["&lt;li&gt;","&lt;ul&gt;","&lt;ol&gt;","&lt;list&gt;"],answer:0},
+{q:"HTML tag for unordered list?",options:["&lt;ul&gt;","&lt;ol&gt;","&lt;li&gt;","&lt;list&gt;"],answer:0},
+{q:"HTML tag for ordered list?",options:["&lt;ol&gt;","&lt;ul&gt;","&lt;li&gt;","&lt;list&gt;"],answer:0},
+{q:"HTML tag for line break?",options:["&lt;br&gt;","&lt;hr&gt;","&lt;break&gt;","&lt;lb&gt;"],answer:0},
+{q:"HTML tag for horizontal line?",options:["&lt;hr&gt;","&lt;br&gt;","&lt;line&gt;","&lt;hl&gt;"],answer:0},
+{q:"HTML tag for input field?",options:["&lt;input&gt;","&lt;form&gt;","&lt;textarea&gt;","&lt;button&gt;"],answer:0},
+{q:"HTML tag for form?",options:["&lt;form&gt;","&lt;input&gt;","&lt;submit&gt;","&lt;action&gt;"],answer:0},
+{q:"Which attribute submits form URL?",options:["action","method","name","target"],answer:0},
+{q:"HTML is ___ language?",options:["Markup","Programming","Scripting","Database"],answer:0}
+];
+
+const container = document.getElementById("quizContainer");
+
+htmlQuiz.forEach((item,index)=>{
+  const qDiv = document.createElement("div");
+  qDiv.innerHTML = `
+    <h3>Q${index+1}: ${item.q}</h3>
+    ${item.options.map((opt,i)=>`
+      <label>
+        <input type="radio" name="q${index}" value="${i}"> ${opt}
+      </label>
+    `).join("")}
+    <hr>
+  `;
+  container.appendChild(qDiv);
+});
+
+const submitBtn = document.createElement("button");
+submitBtn.textContent = "Submit Quiz";
+
+submitBtn.onclick = function(){
+  let score = 0;
+  htmlQuiz.forEach((item,index)=>{
+    const radios = document.getElementsByName("q"+index);
+    for(let i=0;i<radios.length;i++){
+      if(radios[i].checked && parseInt(radios[i].value) === item.answer){
+        score++;
+      }
+    }
+  });
+  alert("Your HTML Quiz Score: " + score + " / " + htmlQuiz.length);
+};
+
+container.appendChild(submitBtn);
+</script>
+
+</body>
+</html>

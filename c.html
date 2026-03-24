@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn C</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn C</h1>
+    <p>Foundation of programming and system-level coding!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>C Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('c-intro')">1. Introduction to C</li>
+    <div id="c-intro" class="topic-content">
+      <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-variables')">2. Variables & Data Types</li>
+    <div id="c-variables" class="topic-content">
+      <pre>
+int age = 25;
+float pi = 3.14;
+char grade = 'A';
+double salary = 45000.50;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-operators')">3. Operators</li>
+    <div id="c-operators" class="topic-content">
+      <pre>
+// Arithmetic: +, -, *, /, %
+int sum = 5 + 3;
+
+// Comparison: ==, !=, >, <
+int flag = (5 > 3); // 1 = true
+
+// Logical: &&, ||, !
+int logic = 1 && 0; // 0 = false
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-conditions')">4. Conditions</li>
+    <div id="c-conditions" class="topic-content">
+      <pre>
+int age = 18;
+
+if(age >= 18){
+    printf("Adult");
+}else{
+    printf("Minor");
+}
+
+switch(age){
+    case 18:
+        printf("Exactly 18");
+        break;
+    default:
+        printf("Other age");
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-loops')">5. Loops</li>
+    <div id="c-loops" class="topic-content">
+      <pre>
+// for loop
+for(int i=0;i<5;i++){
+    printf("%d\n", i);
+}
+
+// while loop
+int i=0;
+while(i<5){
+    printf("%d\n", i);
+    i++;
+}
+
+// do-while loop
+int j=0;
+do{
+    printf("%d\n", j);
+    j++;
+}while(j<5);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-functions')">6. Functions</li>
+    <div id="c-functions" class="topic-content">
+      <pre>
+int add(int a, int b){
+    return a + b;
+}
+
+int main(){
+    printf("%d", add(5,3));
+    return 0;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-arrays')">7. Arrays & Strings</li>
+    <div id="c-arrays" class="topic-content">
+      <pre>
+int numbers[5] = {1,2,3,4,5};
+printf("%d", numbers[0]); // 1
+
+char name[] = "Alice";
+printf("%s", name);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-pointers')">8. Pointers</li>
+    <div id="c-pointers" class="topic-content">
+      <pre>
+int x = 10;
+int *ptr = &x;
+printf("%d", *ptr); // 10
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('c-advanced')">9. Advanced C Topics</li>
+    <div id="c-advanced" class="topic-content">
+      <ul>
+        <li>Structures</li>
+        <li>Dynamic Memory (malloc, free)</li>
+        <li>File I/O (fopen, fread, fwrite)</li>
+        <li>Preprocessor Directives</li>
+        <li>Recursion</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | C Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

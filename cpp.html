@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn C++</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn C++</h1>
+    <p>Powerful programming for desktop, games, and systems!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>C++ Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('cpp-intro')">1. Introduction to C++</li>
+    <div id="cpp-intro" class="topic-content">
+      <p>C++ is a high-performance programming language widely used in system programming, games, and applications.</p>
+      <pre>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello World";
+    return 0;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-variables')">2. Variables & Data Types</li>
+    <div id="cpp-variables" class="topic-content">
+      <pre>
+int age = 25;
+float pi = 3.14;
+char grade = 'A';
+bool flag = true;
+string name = "Alice";
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-operators')">3. Operators</li>
+    <div id="cpp-operators" class="topic-content">
+      <pre>
+// Arithmetic: +, -, *, /, %
+int sum = 5 + 3;
+
+// Comparison: ==, !=, >, <
+bool result = (5 > 3); // true
+
+// Logical: &&, ||, !
+bool flag = true && false; // false
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-conditions')">4. Conditions (if, else, switch)</li>
+    <div id="cpp-conditions" class="topic-content">
+      <pre>
+int age = 18;
+
+if(age >= 18){
+    cout &lt;&lt; "Adult";
+} else {
+    cout &lt;&lt; "Minor";
+}
+
+switch(age){
+    case 18:
+        cout &lt;&lt; "Exactly 18";
+        break;
+    default:
+        cout &lt;&lt; "Other";
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-loops')">5. Loops (for, while, do-while)</li>
+    <div id="cpp-loops" class="topic-content">
+      <pre>
+// for loop
+for(int i=0;i&lt;5;i++){
+    cout &lt;&lt; i;
+}
+
+// while loop
+int i=0;
+while(i&lt;5){
+    cout &lt;&lt; i;
+    i++;
+}
+
+// do-while loop
+int j=0;
+do{
+    cout &lt;&lt; j;
+    j++;
+}while(j&lt;5);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-functions')">6. Functions</li>
+    <div id="cpp-functions" class="topic-content">
+      <pre>
+int add(int a, int b){
+    return a+b;
+}
+
+int main(){
+    cout &lt;&lt; add(5,3);
+    return 0;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-arrays')">7. Arrays & Strings</li>
+    <div id="cpp-arrays" class="topic-content">
+      <pre>
+int numbers[5] = {1,2,3,4,5};
+cout &lt;&lt; numbers[0]; // 1
+
+string name = "Alice";
+cout &lt;&lt; name;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-pointers')">8. Pointers & References</li>
+    <div id="cpp-pointers" class="topic-content">
+      <pre>
+int x = 10;
+int *ptr = &x;
+cout &lt;&lt; *ptr; // 10
+
+int &ref = x;
+ref = 20;
+cout &lt;&lt; x; // 20
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-oop')">9. Object-Oriented Programming (OOP)</li>
+    <div id="cpp-oop" class="topic-content">
+      <pre>
+class Person{
+public:
+    string name;
+    int age;
+
+    void greet(){
+        cout &lt;&lt; "Hello " &lt;&lt; name;
+    }
+};
+
+int main(){
+    Person p;
+    p.name = "Alice";
+    p.age = 25;
+    p.greet();
+    return 0;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-stl')">10. Standard Template Library (STL)</li>
+    <div id="cpp-stl" class="topic-content">
+      <ul>
+        <li>Vector, List, Map, Set</li>
+        <li>Iterators</li>
+        <li>Algorithms: sort, find, reverse</li>
+      </ul>
+    </div>
+
+    <li onclick="toggleContent('cpp-fileio')">11. File I/O</li>
+    <div id="cpp-fileio" class="topic-content">
+      <pre>
+#include &lt;fstream&gt;
+
+ofstream outFile("data.txt");
+outFile &lt;&lt; "Hello C++";
+outFile.close();
+
+ifstream inFile("data.txt");
+string text;
+inFile &gt;&gt; text;
+cout &lt;&lt; text;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('cpp-advanced')">12. Advanced C++ Topics</li>
+    <div id="cpp-advanced" class="topic-content">
+      <ul>
+        <li>Dynamic Memory (new, delete)</li>
+        <li>Templates (Function & Class Templates)</li>
+        <li>Exception Handling (try, catch, throw)</li>
+        <li>Operator Overloading</li>
+        <li>Inheritance & Polymorphism</li>
+        <li>Namespaces</li>
+        <li>Lambda Functions in C++11+</li>
+        <li>Smart Pointers</li>
+        <li>Multithreading Basics</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | C++ Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

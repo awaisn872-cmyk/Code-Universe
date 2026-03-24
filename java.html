@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Java</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn Java</h1>
+    <p>Powerful object-oriented programming for desktop, web, and mobile applications!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>Java Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('java-intro')">1. Introduction to Java</li>
+    <div id="java-intro" class="topic-content">
+      <p>Java is a high-level, object-oriented programming language used for desktop, web, and mobile applications.</p>
+      <pre>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-variables')">2. Variables & Data Types</li>
+    <div id="java-variables" class="topic-content">
+      <pre>
+int age = 25;
+double pi = 3.14;
+char grade = 'A';
+boolean flag = true;
+String name = "Alice";
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-operators')">3. Operators</li>
+    <div id="java-operators" class="topic-content">
+      <pre>
+// Arithmetic: +, -, *, /, %
+int sum = 5 + 3;
+
+// Comparison: ==, !=, >, <
+boolean result = (5 > 3);
+
+// Logical: &&, ||, !
+boolean flag = true && false;
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-conditions')">4. Conditions (if, else, switch)</li>
+    <div id="java-conditions" class="topic-content">
+      <pre>
+int age = 18;
+
+if(age >= 18){
+    System.out.println("Adult");
+} else {
+    System.out.println("Minor");
+}
+
+switch(age){
+    case 18:
+        System.out.println("Exactly 18");
+        break;
+    default:
+        System.out.println("Other age");
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-loops')">5. Loops (for, while, do-while)</li>
+    <div id="java-loops" class="topic-content">
+      <pre>
+// for loop
+for(int i=0;i<5;i++){
+    System.out.println(i);
+}
+
+// while loop
+int i=0;
+while(i<5){
+    System.out.println(i);
+    i++;
+}
+
+// do-while loop
+int j=0;
+do{
+    System.out.println(j);
+    j++;
+}while(j<5);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-functions')">6. Methods / Functions</li>
+    <div id="java-functions" class="topic-content">
+      <pre>
+public static int add(int a, int b){
+    return a + b;
+}
+
+public static void main(String[] args){
+    System.out.println(add(5,3));
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-arrays')">7. Arrays & Strings</li>
+    <div id="java-arrays" class="topic-content">
+      <pre>
+int[] numbers = {1,2,3,4,5};
+System.out.println(numbers[0]); // 1
+
+String name = "Alice";
+System.out.println(name);
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-oop')">8. Object-Oriented Programming (OOP)</li>
+    <div id="java-oop" class="topic-content">
+      <pre>
+class Person {
+    String name;
+    int age;
+
+    void greet(){
+        System.out.println("Hello " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        Person p = new Person();
+        p.name = "Alice";
+        p.age = 25;
+        p.greet();
+    }
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-exception')">9. Exception Handling</li>
+    <div id="java-exception" class="topic-content">
+      <pre>
+try{
+    int result = 10 / 0;
+}catch(ArithmeticException e){
+    System.out.println("Cannot divide by zero");
+}finally{
+    System.out.println("Execution finished");
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('java-collections')">10. Collections Framework</li>
+    <div id="java-collections" class="topic-content">
+      <ul>
+        <li>ArrayList, LinkedList</li>
+        <li>HashMap, HashSet</li>
+        <li>Iterators & Loops</li>
+        <li>Sorting & Searching</li>
+      </ul>
+    </div>
+
+    <li onclick="toggleContent('java-advanced')">11. Advanced Java Topics</li>
+    <div id="java-advanced" class="topic-content">
+      <ul>
+        <li>Java Generics</li>
+        <li>Java Streams</li>
+        <li>Lambda Expressions</li>
+        <li>Multithreading</li>
+        <li>File I/O</li>
+        <li>Serialization & Deserialization</li>
+        <li>JavaFX / Swing Basics</li>
+        <li>Networking in Java</li>
+        <li>Java Modules</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Java Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

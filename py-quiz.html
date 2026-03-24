@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Python Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Poppins', sans-serif; padding: 20px; background: #f5f5f5; }
+.container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+h1 { text-align: center; }
+h3 { margin-top: 20px; }
+label { display: block; margin: 5px 0; }
+button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+a { display: inline-block; margin-bottom: 20px; color: #333; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<a href="quiz.html">← Back to Quiz Selection</a>
+<h1>Python Quiz</h1>
+<p>Test your Python knowledge! Select the correct answer for each question.</p>
+
+<div id="quizContainer"></div>
+</div>
+
+<script>
+const pythonQuiz = [
+{ q: "Which keyword is used for function?", options: ["def","function","func","lambda"], answer: 0 },
+{ q: "Which symbol is used for comments?", options: ["#","//","/* */","<!-- -->"], answer: 0 },
+{ q: "Which method prints output?", options: ["print()","echo()","console.log()","write()"], answer: 0 },
+{ q: "How to create a list?", options: ["[]","()","{}","<>"], answer: 0 },
+{ q: "How to create a tuple?", options: ["()","[]","{}","<>"], answer: 0 },
+{ q: "Keyword for conditional?", options: ["if","when","cond","case"], answer: 0 },
+{ q: "Keyword for loop?", options: ["for","loop","whileloop","repeat"], answer: 0 },
+{ q: "Keyword for else?", options: ["else","otherwise","elif","or"], answer: 0 },
+{ q: "To import modules?", options: ["import","require","include","use"], answer: 0 },
+{ q: "How to handle exceptions?", options: ["try/except","catch/throw","error/handle","try/catch"], answer: 0 },
+{ q: "Python is ___ typed language?", options: ["Dynamically","Statically","Weakly","Strongly"], answer: 0 },
+{ q: "To create a dictionary?", options: ["{}","[]","()","<>"], answer: 0 },
+{ q: "Method to get length?", options: ["len()","length()","size()","count()"], answer: 0 },
+{ q: "Keyword for class?", options: ["class","object","def","module"], answer: 0 },
+{ q: "Keyword for anonymous function?", options: ["lambda","def","func","anonymous"], answer: 0 },
+{ q: "To read input from user?", options: ["input()","scanf()","read()","gets()"], answer: 0 },
+{ q: "Keyword for global variable?", options: ["global","var","let","const"], answer: 0 },
+{ q: "Python extension file?", options: [".py",".java",".js",".cpp"], answer: 0 },
+{ q: "Keyword for pass?", options: ["pass","skip","continue","break"], answer: 0 },
+{ q: "Which loop can be used for iteration?", options: ["for","while","both","none"], answer: 2 }
+];
+
+const container = document.getElementById('quizContainer');
+pythonQuiz.forEach((item,index) => {
+const qDiv = document.createElement('div');
+qDiv.innerHTML = `<h3>Q${index+1}: ${item.q}</h3>
+${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}
+<hr>`;
+container.appendChild(qDiv);
+});
+
+const submitBtn = document.createElement('button');
+submitBtn.textContent = "Submit Quiz";
+submitBtn.onclick = () => {
+let score = 0;
+pythonQuiz.forEach((item,index) => {
+const radios = document.getElementsByName('q'+index);
+radios.forEach(r => { if(r.checked && parseInt(r.value)===item.answer) score++; });
+});
+alert(`Your Python Quiz Score: ${score} / ${pythonQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+
+</body>
+</html>

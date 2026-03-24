@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | JavaScript Quiz</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-family: 'Poppins', sans-serif; padding: 20px; background: #f5f5f5; }
+  .container { max-width: 800px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+  h1 { text-align: center; }
+  h3 { margin-top: 20px; }
+  label { display: block; margin: 5px 0; }
+  button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; background: #4CAF50; color: white; border: none; cursor: pointer; }
+  a { display: inline-block; margin-bottom: 20px; color: #333; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="quiz.html">← Back to Quiz Selection</a>
+  <h1>JavaScript Quiz</h1>
+  <p>Test your JavaScript knowledge! Select the correct answer for each question.</p>
+
+  <div id="quizContainer"></div>
+</div>
+
+<script>
+// JavaScript Quiz Data (20 Questions)
+const jsQuiz = [
+  { q: "What does JS stand for?", options: ["JavaScript","JavaStyle","JustScript","JScript"], answer: 0 },
+  { q: "Which symbol is used for comments in JS?", options: ["//","<!--","/*","##"], answer: 0 },
+  { q: "Which function converts a string to integer?", options: ["parseInt()","toInt()","Number()","int()"], answer: 0 },
+  { q: "Which operator is used for strict equality?", options: ["===","==","=","!=="], answer: 0 },
+  { q: "How to declare a variable?", options: ["var, let, const","dim","variable","declare"], answer: 0 },
+  { q: "Which method logs output to console?", options: ["console.log()","print()","echo()","log()"], answer: 0 },
+  { q: "Which is a JS framework?", options: ["React","Laravel","Django","Rails"], answer: 0 },
+  { q: "Which keyword defines a constant?", options: ["const","let","var","constant"], answer: 0 },
+  { q: "Array method to add item at the end?", options: ["push()","pop()","shift()","unshift()"], answer: 0 },
+  { q: "Array method to remove last item?", options: ["pop()","push()","shift()","unshift()"], answer: 0 },
+  { q: "Method to join array elements?", options: ["join()","concat()","merge()","combine()"], answer: 0 },
+  { q: "Event triggered on click?", options: ["onclick","onhover","onpress","onchange"], answer: 0 },
+  { q: "Convert JSON string to object?", options: ["JSON.parse()","JSON.stringify()","JSON.object()","JSON.convert()"], answer: 0 },
+  { q: "Convert object to JSON string?", options: ["JSON.stringify()","JSON.parse()","JSON.object()","JSON.convert()"], answer: 0 },
+  { q: "Which keyword is used to create a class?", options: ["class","object","function","define"], answer: 0 },
+  { q: "Function to round a number?", options: ["Math.round()","Math.floor()","Math.ceil()","round()"], answer: 0 },
+  { q: "JS is ______ language?", options: ["Interpreted","Compiled","Hybrid","None"], answer: 0 },
+  { q: "Default value of uninitialized variable?", options: ["undefined","null","0","''"], answer: 0 },
+  { q: "Which keyword used for inheritance in JS classes?", options: ["extends","inherits","super","prototype"], answer: 0 },
+  { q: "How to write a multi-line comment?", options: ["/* comment */","// comment","<!-- comment -->","## comment ##"], answer: 0 }
+];
+
+// Load Quiz
+const container = document.getElementById('quizContainer');
+
+jsQuiz.forEach((item,index) => {
+  const qDiv = document.createElement('div');
+  qDiv.innerHTML = `
+    <h3>Q${index+1}: ${item.q}</h3>
+    ${item.options.map((opt,i)=>`<label><input type="radio" name="q${index}" value="${i}"> ${opt}</label>`).join('')}
+    <hr>
+  `;
+  container.appendChild(qDiv);
+});
+
+// Submit Button
+const submitBtn = document.createElement('button');
+submitBtn.textContent = "Submit Quiz";
+submitBtn.onclick = () => {
+  let score = 0;
+  jsQuiz.forEach((item,index) => {
+    const radios = document.getElementsByName('q'+index);
+    radios.forEach(r => { if(r.checked && parseInt(r.value)===item.answer) score++; });
+  });
+  alert(`Your JavaScript Quiz Score: ${score} / ${jsQuiz.length}`);
+};
+container.appendChild(submitBtn);
+</script>
+
+</body>
+</html>

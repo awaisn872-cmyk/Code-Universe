@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Node.js</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn Node.js</h1>
+    <p>JavaScript runtime for building fast, server-side applications!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>Node.js Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('node-intro')">1. Introduction to Node.js</li>
+    <div id="node-intro" class="topic-content">
+      <pre>
+const http = require('http');
+
+http.createServer((req, res) => {
+  res.write('Hello, Node.js!');
+  res.end();
+}).listen(3000);
+      </pre>
+      <p>Node.js allows building server-side applications using JavaScript.</p>
+    </div>
+
+    <li onclick="toggleContent('node-modules')">2. Modules & Packages</li>
+    <div id="node-modules" class="topic-content">
+      <pre>
+// Import a module
+const fs = require('fs');
+
+// Read a file
+fs.readFile('file.txt', 'utf8', (err, data) => {
+  if(err) throw err;
+  console.log(data);
+});
+      </pre>
+      <p>Node.js uses modules to organize code and NPM to manage packages.</p>
+    </div>
+
+    <li onclick="toggleContent('node-express')">3. Express.js</li>
+    <div id="node-express" class="topic-content">
+      <pre>
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => res.send('Hello, Express!'));
+
+app.listen(3000, () => console.log('Server running on port 3000'));
+      </pre>
+      <p>Express is a Node.js framework for building web apps and APIs.</p>
+    </div>
+
+    <li onclick="toggleContent('node-advanced')">4. Advanced Node.js</li>
+    <div id="node-advanced" class="topic-content">
+      <ul>
+        <li>Asynchronous Programming (Promises, Async/Await)</li>
+        <li>File System & Streams</li>
+        <li>REST APIs</li>
+        <li>WebSockets</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Node.js Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn Python</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn Python</h1>
+    <p>Powerful, simple, and beginner-friendly programming language!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>Python Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('py-intro')">1. Introduction to Python</li>
+    <div id="py-intro" class="topic-content">
+      <p>Python is a high-level, interpreted programming language known for simplicity and readability.</p>
+      <pre>
+# Hello World
+print("Hello World")
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-variables')">2. Variables & Data Types</li>
+    <div id="py-variables" class="topic-content">
+      <pre>
+# Variables
+name = "Alice"
+age = 25
+pi = 3.14
+
+# Data types: int, float, str, bool, list, tuple, dict, set
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-operators')">3. Operators</li>
+    <div id="py-operators" class="topic-content">
+      <pre>
+# Arithmetic
+sum = 5 + 3
+
+# Comparison
+print(5 > 3)  # True
+
+# Logical
+print(True and False)  # False
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-conditions')">4. Conditions (if, elif, else)</li>
+    <div id="py-conditions" class="topic-content">
+      <pre>
+age = 18
+if age >= 18:
+    print("Adult")
+elif age == 17:
+    print("Almost Adult")
+else:
+    print("Minor")
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-loops')">5. Loops (for, while)</li>
+    <div id="py-loops" class="topic-content">
+      <pre>
+# For loop
+for i in range(5):
+    print(i)
+
+# While loop
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-functions')">6. Functions</li>
+    <div id="py-functions" class="topic-content">
+      <pre>
+def greet(name):
+    return "Hello " + name
+
+print(greet("Alice"))
+
+# Lambda function
+add = lambda a,b: a+b
+print(add(5,3))
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-lists')">7. Lists, Tuples, Sets</li>
+    <div id="py-lists" class="topic-content">
+      <pre>
+fruits = ["Apple", "Banana", "Mango"]
+fruits.append("Orange")
+print(fruits[0])  # Apple
+
+tup = (1,2,3)
+s = {1,2,3,3}  # Set removes duplicates
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-dict')">8. Dictionaries</li>
+    <div id="py-dict" class="topic-content">
+      <pre>
+person = {"name": "Alice", "age": 25}
+print(person["name"])
+
+person["city"] = "New York"
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-strings')">9. Strings & String Methods</li>
+    <div id="py-strings" class="topic-content">
+      <pre>
+text = "Hello World"
+print(text.upper())
+print(text.lower())
+print(text.replace("World", "Python"))
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-file')">10. File Handling</li>
+    <div id="py-file" class="topic-content">
+      <pre>
+# Write to file
+with open("file.txt", "w") as f:
+    f.write("Hello Python")
+
+# Read file
+with open("file.txt", "r") as f:
+    print(f.read())
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-oop')">11. Object-Oriented Programming (OOP)</li>
+    <div id="py-oop" class="topic-content">
+      <pre>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print("Hello " + self.name)
+
+p1 = Person("Alice", 25)
+p1.greet()
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-modules')">12. Modules & Libraries</li>
+    <div id="py-modules" class="topic-content">
+      <pre>
+# Import built-in module
+import math
+print(math.sqrt(16))
+
+# Import custom module
+# import mymodule
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('py-advanced')">13. Advanced Python</li>
+    <div id="py-advanced" class="topic-content">
+      <ul>
+        <li>Decorators</li>
+        <li>Generators & Iterators</li>
+        <li>List Comprehensions</li>
+        <li>Exception Handling (try / except / finally)</li>
+        <li>Async / Await</li>
+        <li>Context Managers (with statement)</li>
+        <li>Regular Expressions (re module)</li>
+        <li>Working with JSON</li>
+        <li>Python Standard Library Overview</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | Python Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

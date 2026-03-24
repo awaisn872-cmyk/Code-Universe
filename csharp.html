@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn C#</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <h1>Learn C#</h1>
+    <p>Microsoft's powerful language for desktop, web, and game development!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<section class="topics container">
+  <h2>C# Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <li onclick="toggleContent('cs-intro')">1. Introduction to C#</li>
+    <div id="cs-intro" class="topic-content">
+      <pre>
+// Hello World
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello World!");
+    }
+}
+      </pre>
+      <p>C# is an object-oriented, strongly-typed language mainly used for Windows apps, web apps, and games (Unity).</p>
+    </div>
+
+    <li onclick="toggleContent('cs-variables')">2. Variables & Data Types</li>
+    <div id="cs-variables" class="topic-content">
+      <pre>
+int age = 25;
+double salary = 45000.5;
+string name = "Alice";
+bool isStudent = true;
+      </pre>
+      <p>Variables store data. C# has types like int, double, string, bool, etc.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-operators')">3. Operators</li>
+    <div id="cs-operators" class="topic-content">
+      <pre>
+// Arithmetic
+int sum = 5 + 3;
+
+// Comparison
+bool isAdult = age >= 18;
+
+// Logical
+bool flag = isAdult && isStudent;
+      </pre>
+      <p>Operators perform calculations, comparisons, or logical operations.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-conditions')">4. Conditions</li>
+    <div id="cs-conditions" class="topic-content">
+      <pre>
+if(age >= 18){
+    Console.WriteLine("Adult");
+}else{
+    Console.WriteLine("Minor");
+}
+
+// Switch
+switch(age){
+    case 18:
+        Console.WriteLine("Exactly 18");
+        break;
+    default:
+        Console.WriteLine("Other age");
+}
+      </pre>
+      <p>Use if-else or switch to control program flow based on conditions.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-loops')">5. Loops</li>
+    <div id="cs-loops" class="topic-content">
+      <pre>
+// for loop
+for(int i=0; i<5; i++){
+    Console.WriteLine(i);
+}
+
+// while loop
+int j=0;
+while(j<5){
+    Console.WriteLine(j);
+    j++;
+}
+
+// foreach (arrays)
+string[] fruits = {"Apple","Banana","Mango"};
+foreach(string fruit in fruits){
+    Console.WriteLine(fruit);
+}
+      </pre>
+      <p>Loops repeat code multiple times until a condition is met.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-functions')">6. Functions / Methods</li>
+    <div id="cs-functions" class="topic-content">
+      <pre>
+int Add(int a, int b){
+    return a + b;
+}
+
+Console.WriteLine(Add(5,3));
+      </pre>
+      <p>Methods are reusable code blocks that can return values.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-oop')">7. Object-Oriented Programming (OOP)</li>
+    <div id="cs-oop" class="topic-content">
+      <pre>
+class Person {
+    public string Name;
+    public int Age;
+
+    public void Greet(){
+        Console.WriteLine("Hello " + Name);
+    }
+}
+
+Person p = new Person();
+p.Name = "Alice";
+p.Age = 25;
+p.Greet();
+      </pre>
+      <p>C# supports OOP concepts: Classes, Objects, Inheritance, Encapsulation, Polymorphism.</p>
+    </div>
+
+    <li onclick="toggleContent('cs-advanced')">8. Advanced C# Topics</li>
+    <div id="cs-advanced" class="topic-content">
+      <ul>
+        <li>Properties & Indexers</li>
+        <li>Events & Delegates</li>
+        <li>LINQ (Language Integrated Query)</li>
+        <li>Exception Handling (try-catch-finally)</li>
+        <li>Generics & Collections</li>
+        <li>Async & Await</li>
+      </ul>
+      <pre>
+// Example: Exception Handling
+try {
+    int x = int.Parse("abc");
+} catch(Exception e) {
+    Console.WriteLine("Error: " + e.Message);
+}
+      </pre>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | C# Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

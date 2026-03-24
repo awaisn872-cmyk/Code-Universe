@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeUniverse | Learn CSS</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <h1>Learn CSS</h1>
+    <p>Make your websites beautiful and responsive!</p>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </div>
+</header>
+
+<!-- TOPIC LIST -->
+<section class="topics container">
+  <h2>CSS Topics</h2>
+  <p>Click on a topic to expand and learn in detail.</p>
+
+  <ul class="topic-list">
+
+    <!-- Beginner -->
+    <li onclick="toggleContent('css-intro')">1. Introduction to CSS</li>
+    <div id="css-intro" class="topic-content">
+      <p>CSS (Cascading Style Sheets) is used to style HTML elements and make websites visually appealing.</p>
+      <pre>
+/* Example */
+body {
+  background-color: lightblue;
+  font-family: Arial, sans-serif;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-selectors')">2. CSS Selectors</li>
+    <div id="css-selectors" class="topic-content">
+      <p>Selectors target HTML elements to apply styles.</p>
+      <pre>
+/* Tag selector */
+p {
+  color: red;
+}
+
+/* Class selector */
+.my-class {
+  font-size: 18px;
+}
+
+/* ID selector */
+#my-id {
+  background: yellow;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-color-font')">3. Colors, Fonts & Text</li>
+    <div id="css-color-font" class="topic-content">
+      <pre>
+body {
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  color: darkblue;
+  font-weight: 600;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-box')">4. Box Model</li>
+    <div id="css-box" class="topic-content">
+      <pre>
+/* Box model consists of: margin, border, padding, content */
+div {
+  width: 200px;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 15px;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-background')">5. Backgrounds & Borders</li>
+    <div id="css-background" class="topic-content">
+      <pre>
+div {
+  background-color: lightyellow;
+  border: 2px dashed green;
+  border-radius: 10px;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-display')">6. Display & Visibility</li>
+    <div id="css-display" class="topic-content">
+      <pre>
+/* Display types: block, inline, inline-block, none */
+div {
+  display: block;
+}
+
+/* Visibility */
+p {
+  visibility: hidden;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-position')">7. Positioning</li>
+    <div id="css-position" class="topic-content">
+      <pre>
+/* Static, Relative, Absolute, Fixed, Sticky */
+div {
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-flex')">8. Flexbox</li>
+    <div id="css-flex" class="topic-content">
+      <pre>
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item {
+  flex: 1;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-grid')">9. CSS Grid</li>
+    <div id="css-grid" class="topic-content">
+      <pre>
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.item {
+  background: lightblue;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-responsive')">10. Responsive Design & Media Queries</li>
+    <div id="css-responsive" class="topic-content">
+      <pre>
+/* Mobile first responsive */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-animations')">11. Transitions & Animations</li>
+    <div id="css-animations" class="topic-content">
+      <pre>
+/* Transition */
+div {
+  transition: background 0.5s;
+}
+
+/* Animation */
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+div {
+  animation: example 3s infinite;
+}
+      </pre>
+    </div>
+
+    <li onclick="toggleContent('css-advanced')">12. Advanced CSS Topics</li>
+    <div id="css-advanced" class="topic-content">
+      <ul>
+        <li>CSS Variables (Custom Properties)</li>
+        <li>CSS Pseudo-classes (:hover, :nth-child, :focus)</li>
+        <li>CSS Pseudo-elements (::before, ::after)</li>
+        <li>Advanced Selectors</li>
+        <li>CSS Functions (calc(), clamp(), min(), max())</li>
+        <li>CSS Grid Advanced Layouts</li>
+        <li>CSS Flexbox Advanced Alignment</li>
+        <li>CSS Clip-path & Masking</li>
+        <li>CSS Filters & Blend Modes</li>
+        <li>CSS Scroll & Sticky Elements</li>
+        <li>CSS Variables & Theming</li>
+      </ul>
+    </div>
+
+  </ul>
+</section>
+
+<footer class="footer">
+  <p>© 2026 CodeUniverse | CSS Learning Page</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
